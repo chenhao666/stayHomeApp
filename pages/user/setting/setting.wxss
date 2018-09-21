@@ -1,0 +1,47 @@
+/* pages/user/setting/setting.wxss */
+page{
+  background:#f2f2f2;
+}
+.item{
+  width: 100%;
+  height: 92rpx;
+  background: #ffffff;
+  line-height: 92rpx;
+  border-top: 1rpx solid #f2f2f2;
+}
+.list{
+  margin-top: 20rpx;
+  width: 100%;
+}
+.list .left{
+  float: left;
+  font-size: 27rpx;
+  margin-left: 51rpx;
+  color: #292929;
+}
+.list .right{
+  float: right;
+  color: #787878;
+  font-size: 19rpx;
+  margin-right: 61rpx;
+}
+.list image{
+  width: 23rpx;
+  height: 23rpx;
+  float: right;
+  margin-right: 62rpx;
+  margin-top: 35rpx;
+}
+.loginOut{
+  margin-top: 61rpx;
+  width: 670rpx;
+  height: 100rpx;
+  line-height: 100rpx;
+  border-radius: 10rpx;
+  background: #d2003e;
+  color: #ffffff;
+  font-size: 36rpx;
+  background-image: linear-gradient(to right, #F2CD0B 0%,#F2AE0B 100%);
+  text-align: center;
+  letter-spacing: 3rpx;
+}

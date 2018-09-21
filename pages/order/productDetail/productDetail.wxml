@@ -1,0 +1,53 @@
+<view class='container'>
+
+    <swiper indicator-dots="{{indicatorDots}}"
+      autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" bindchange='getIndex'>
+      <block wx:for="{{listData.goodsImages}}" wx:key='index'>
+        <swiper-item>
+          <image src="{{item}}" mode="aspectFit"  class="slide-image" width="355" height="150" bindtap='showPic'/>
+        </swiper-item>
+      </block>
+    </swiper>
+    <view class='number'>
+      <text>{{current}}/{{imgLength}}</text>
+    </view>
+ 
+ 
+    <view class='type'>
+      <view class='first'>
+        <text class='first-left'>{{listData.goodsName}}</text>
+        <text class='first-right' wx:if="{{ showPrice }}">￥{{listData.unitPrice}}</text>
+        <view class='clear'></view>
+      </view>
+      <view class='second'>
+        <text class='second-left'>品牌:</text>
+        <text class='second-right'>{{listData.brandName}}</text>
+        <view class='clear'></view>
+      </view>
+      <view class='second'>
+        <text class='second-left'>编号:</text>
+        <text class='second-right'>{{listData.goodsCode}}</text>
+        <view class='clear'></view>
+      </view>
+      <view class='second'>
+        <text class='second-left'>规格:</text>
+        <text class='second-right'>{{listData.specifications}}</text>
+        <view class='clear'></view>
+      </view>
+      <view class='second'>
+        <text class='second-left'>材质:</text>
+        <text class='second-right'>{{listData.material}}</text>
+        <view class='clear'></view>
+      </view>
+      <view class='second'>
+        <text class='second-left'>颜色:</text>
+        <text class='second-right'>{{listData.goodsColor}}</text>
+        <view class='clear'></view>
+      </view>
+      <view class='second'>
+        <text class='second-left'>单位:</text>
+        <text class='second-right'>{{listData.units}}</text>
+        <view class='clear'></view>
+      </view>
+    </view>
+</view>

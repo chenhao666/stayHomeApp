@@ -1,0 +1,38 @@
+<!-- 地址管理 -->
+<view class='container'>
+  <view class='main' wx:if='{{notMessage == false}}'>
+   <view class="header {{itemIndex[index] ? 'header-active':''}}" wx:for='{{ addressArr }}' wx:key='index' data-index='{{index}}' bindtouchstart="touchstart" bindtouchmove="touchmove">
+      <view class='header-item' bindtap='defaultAddress' data-index='{{index}}'>
+        <view class='person'>
+          <text class='header_name'>{{ item.linkman }}</text>
+          <text class='header_tel'>{{ item.mobileNum }}</text>
+        </view>
+        <view class='address'>
+          <text>{{ item.province }}{{item.city}}{{item.distincts}}{{item.address}}</text>
+        </view>
+      </view>
+      <view class='header_right' bindtap='updateBtn' data-index='{{index}}'>
+          <image class='right_icon' data-index='{{index}}' src='/img/editor.png' ></image>
+        </view>
+      <view class='delete delete-active' bindtap='deleteAddress' data-index='{{index}}'>
+        <text>删除</text>
+      </view>
+   </view>
+  </view>
+  <view class='footer' bindtap='addAddress'>
+    <view class='add'>
+      <image src='/img/addAddress.png'></image>
+    </view>
+    <view class='content'>
+      <text>新增地址</text>
+    </view>
+  </view>
+  <!-- <view class='no_net' wx:if='{{notNet == true && notMessage == false}}'>
+    <image src='/img/noNetwork.png'></image>
+    <view bindtap='reload'>网络异常 点击重新查看</view>
+  </view> -->
+  <view class='no_address' wx:if='{{notMessage == true}}'>
+    <image src='/img/noAddress.png'></image>
+    <view>暂时没有地址哦</view>
+  </view>
+</view>

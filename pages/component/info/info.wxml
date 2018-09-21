@@ -1,0 +1,53 @@
+<!--pages/component/info/info.wxml-->
+<view class='container'>
+  <view class='programme_info'>
+   <!--列表-->
+    <view class='item'>
+      <view class='threePic'>
+        <image src='{{ programme.designInfo.coverPic }}'></image>
+         <navigator url="/pages/programme/showThree/showThree?url={{ programme.designInfo.threeDurl }}">
+        <view><text>3D</text></view>
+        </navigator>
+        <button open-type="share" data-url='{{ url }}' data-pic='{{ pic }}' data-comboName='{{ comboName }}' data-brandName='{{ brandName }}' data-styleName='{{ styleName }}' class='share'> <image src='/img/share.png' ></image></button>
+      </view>
+
+      <view style='padding:0rpx 30rpx;box-sizing: border-box;'>
+        <view class='base_title'>
+          <text>{{ comboName }}</text>
+          <text class='price'>￥{{ programme.packagePrice }}</text>
+          <view class='clear'></view>
+        </view>
+
+        <view class='content'>
+          {{ programme.designInfo.details }}
+        </view>
+      </view>
+    </view>
+    <!--列表结束-->
+     <navigator url="/pages/programme/showThree/showThree?url=https://m.wojiali.cn/file/articleImg/index.html">
+    <view class='article'>
+      <image src='/img/article.png' class='left'></image>
+      <text>家具保养手册</text>
+      <image src='/img/icon_more.png' class='right'></image>
+      <view style='clear:both'></view>
+    </view>
+    </navigator>
+    <!--列表-->
+    <view class='item'>
+      <view class='item_title'>设计理念</view>
+      <view wx:for="{{ programmeList }}" wx:key="{{ index }}" class='item_box'>
+        <image src='{{ item.coverPic }}'></image>
+        <view class='title' wx:if="{{ item.areaTypeName }}">
+          <view class='circle'></view>
+          <text>{{ item.areaTypeName }}</text>
+          <view class='clear'></view>
+        </view>
+
+        <view class='content'>
+          {{ item.details }}
+        </view>
+      </view>
+    </view>
+    <!--列表结束-->
+  </view>
+</view>

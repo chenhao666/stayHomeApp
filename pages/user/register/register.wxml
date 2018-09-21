@@ -1,0 +1,11 @@
+<!--pages/user/register/register.wxml-->
+<view class='container'>
+  <view class='form'>
+    <view class='box'>
+    <input placeholder="请输入手机号" auto-focus bindinput="bindKeyInput" value='{{ mobile }}'/>
+    <button class='sendCode' bindtap='secCode' disabled="{{ disabled }}">{{ sendName }}</button>
+    </view>
+    <input placeholder="验证码" maxlength="6" value='{{ code }}' bindinput="bindKeyCode" />
+  </view>
+  <button class='button' type="default" bindtap='bindMobile'>绑定</button>
+</view>

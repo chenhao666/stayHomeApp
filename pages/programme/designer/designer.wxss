@@ -1,0 +1,31 @@
+
+page{
+  background: #f7f8fa;
+}
+.banner{
+  width: 750rpx;
+  height: 400rpx;
+}
+.message{
+  width: 750rpx;
+  height: 249rpx;
+  background-color: #ffffff;
+}
+.title{
+  font-family: PingFang-SC-Bold;
+  font-weight: Bold;
+  color: #3F3F3F;
+  font-size: 30rpx;
+  margin-top: 25rpx;
+  margin-left: 30rpx;
+}
+.contain{
+  height: 173rpx;
+  font-family: PingFang SC;
+  font-weight: Medium;
+  color: #595959;
+  font-size: 24rpx;
+  margin-left: 30rpx;
+  margin-top: 16rpx;
+  line-height: 36rpx;
+}

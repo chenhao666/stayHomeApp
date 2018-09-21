@@ -1,0 +1,121 @@
+page{
+  background-color: #f7f8fa;
+}
+.orderList{
+  width: 100%;
+  overflow: hidden;
+}
+.item_list{
+  background-color: #ffffff;
+  margin-top: 20rpx;
+  height: 367rpx;
+}
+.time{
+  font-family: PingFang-SC-Medium;
+  font-weight: Medium;
+  color: #8E8E8E;
+  font-size: 24rpx;
+  height: 30rpx;
+  float: left;
+}
+.status{
+  font-family: PingFang-SC-Bold;
+  font-weight: Bold;
+  color: transparent;
+  font-size: 24rpx;
+  float: right;
+}
+.first-floor{
+  width: 100%;
+  height: 83rpx;
+  padding: 30rpx;
+  box-sizing: border-box;
+}
+.imgList{
+  height: 188rpx;
+  width: 100%;
+  margin-left: 13rpx;
+  overflow: hidden;
+}
+.img{
+  width: 184rpx;
+  height: 184rpx;
+  float: left;
+  margin-left: 17rpx;
+  text-align: center;
+}
+.img image{
+  border: 1rpx solid #F2F2F2;
+  width: 184rpx;
+  height: 184rpx;
+  vertical-align: middle;
+  border-radius: 8rpx;
+  box-sizing: border-box;
+}
+.message{
+  color: #3B3B3B;
+  font-size: 26rpx;
+  height: 98rpx;
+  line-height: 100rpx
+}
+.total_price,.total_num{
+  float: left;
+}
+.total_price{
+  margin-left: 29rpx;
+}
+.total_num{
+  margin-left: 17rpx;
+  font-size: 20rpx;
+  color: #696969;
+  padding-top: 2rpx;
+}
+
+.payment{
+  float: right;
+  width: 120rpx;
+  margin-top: 29rpx;
+  margin-right: 29rpx;
+  text-align: center;
+  line-height: 50rpx;
+  border-radius: 5rpx;
+  background: linear-gradient(to right, #F2CD0B, #F2AE0B);
+}
+.payment .gopay{
+  color: #ffffff;
+  font-family: PingFang-SC-Medium;
+  font-weight: Medium;
+  font-size: 24rpx;
+}
+.total{
+  font-family: PingFang-SC-Medium;
+  font-weight: Medium;
+}
+.price{
+  font-family: PingFang-SC-Bold;
+  font-weight: Bold;
+}
+.status1{
+  color: #3f3f3f;
+}
+.status0{
+  color: #FF4835;
+}
+.status7{
+  color: #787878;
+}
+.no_address{
+  text-align: center;
+  margin-top: 327rpx;
+}
+.no_address image{
+  width: 153rpx;
+  height: 114rpx;
+}
+.no_address view{
+  font-family: PingFang-SC-Medium;
+  font-weight: Medium;
+  color: #A2A2A2;
+  font-size: 24rpx;
+  margin-top: 32rpx;
+}

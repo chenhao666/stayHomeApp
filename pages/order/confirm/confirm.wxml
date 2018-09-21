@@ -1,0 +1,133 @@
+<!--确认订单-->
+<view class='container'>
+  <view class='main'>
+    <view class='header' bindtap='selectAddress'>
+      <view class='header_address'>
+        <image class='address_icon' src='/img/confirm_address.png'></image>
+      </view>
+     
+      <view class='person' wx:if='{{defaultAddress !== 0}}'> 
+        <text class='header_name'>{{addressData.linkman}}</text>
+        <text class='header_tel'>{{addressData.mobileNum}}</text>
+      </view>
+      <view class='address' wx:if='{{defaultAddress !== 0}}'>
+        <text>{{addressData.province}}{{addressData.city}}{{addressData.distincts}}{{addressData.address}}</text> 
+      </view>  
+      <view class='defaultView' wx:if="{{defaultAddress === 0}}">
+        <text>请选择地址</text>
+      </view> 
+      <view class='header_right'>
+        <image class='right_icon' src='/img/confirm_right.png'></image>
+      </view>
+    </view>
+    <view class='agreement'>
+      <image src='{{ checked ? "/img/check.png" : "/img/unCheck.png" }}'  bindtap='changeCheck' class='checkbox'></image>
+      <view class='font'>我已阅读并同意 <text bindtap='goArticle'>《购买须知》</text> </view>
+      <view class='clear'></view>
+    </view>
+    <view class='contain'>
+      <view class='first_floor'>
+        <text class='spec_now'>{{requireData.styleName}}</text>
+        <text class='spec_home'>{{requireData.brandName}}</text>
+      </view>
+     
+      <view class='third_floor'>
+       <view class='list' wx:for="{{ getArr }}" wx:key='index'>
+          <!-- <view class='second_floor'> -->
+            <view class='second_header'>
+              <text class='second_yel'></text>
+              <text class='second_title'>{{item[0].packageName}}</text>
+            </view>
+           
+            <view class='mainContent' wx:for="{{item}}" wx:key="index">
+                <view class='third_left'>
+                  <image mode="aspectFit" src='{{ item.showImg }}'></image>
+                  <!--<text wx:if="{{ item.brandName }}">{{ item.brandName }}</text>-->
+                </view>
+                <view class='third_right'>
+                  <view class='right_title' style='padding-left:{{ item.species=="组合" || item.species=="商品" ? 70 : 0 }}rpx;'>
+                    <text wx:if="{{ item.species=='组合' }}" class='red_bg'>组合</text>
+                    {{ item.goodsName }}
+                  </view>
+                  <!--<view class='right_texture'>
+                    {{ item.classType ? item.classType : '' }}
+                  </view>-->
+                  <view class='right_size'>
+                    <text class='data'>{{item.specifications}}</text>
+                  </view>
+                  <view class='right_sum'>
+                    <text class='right_money'>￥{{item.unitPrice}}</text>
+                    <text class='right_amount'>x{{item.goodsNum}}</text>
+                  </view>
+                </view>
+               <view class='clear'></view>
+              <!--子商品-->
+              <view class='childGoods' wx:for="{{ item.childList }}" wx:key='index' wx:for-index="childIndex" wx:for-item='childlListItem'>
+                <view class='childImg'>
+                  <image mode="aspectFit" src='{{ childlListItem[0].showImg  }}'></image>
+                 <!-- <text class='brandName'>{{ childlListItem[0].brandName }}</text>-->
+                </view>
+                <view class='discription'>
+                  <view class='title' style='padding-left:80rpx;'>
+                    <view class='red_bg'>商品{{ childIndex+1 }}</view>
+                    {{ childlListItem[0].goodsName }}
+                  </view>
+                  <!--<view class='right_texture'>
+                    {{ childlListItem[0].classType ? childlListItem[0].classType : '' }}   
+                  </view>-->
+                  <view class='model'>
+                    {{ childlListItem[0].specifications }}
+                    <view class='num'>x{{ childlListItem[0].goodsNum }}</view>
+                  </view>
+                </view>
+                <view class='clear'></view>
+              </view>
+            </view>
+          <!-- </view> -->
+       </view>
+       <view class='third_footer'>
+        <view class='total' wx:if="{{ requireData.allMoney!=0 }}">
+          <text class='total_title'>总计:</text>
+          <text class='total_data' >{{requireData.totalMoney}}</text>
+        </view>
+        <view class='sub' wx:if="{{ requireData.allMoney!=0 }}">
+          <text class='sub_title'>优惠:</text>
+          <text class='sub_data'>-￥{{requireData.allMoney}}</text>
+        </view>
+        <view class='result'>
+          <text class='result_title'>合计:</text>
+          <text class='result_data'>￥{{requireData.discountMoney}}</text>
+        </view>
+       </view>
+      </view>
+    </view>
+    <view class='footer'>
+      <text class='submit'>
+        <text class='submit_title'>合计:</text>
+        <text class='submit_data'>￥{{requireData.discountMoney}}</text>
+      </text>
+      <text class='payment' bindtap='goPay'>去付款</text>
+    </view>
+  </view>
+</view>
+
+ <!--遮罩层-->
+  <view class='mask' bindtap='closeMask' hidden="{{ maskHidden }}" bindtap='closePay'></view>
+  <!--弹出层-->
+  <view class='animateBox' animation="{{animationData}}" hidden="{{ maskHidden }}">
+    <view class='close'>
+      <image src='/img/close.png' bindtap='closePay'></image>
+      <view class='clear'></view>
+    </view>
+    <view class='item' bindtap='payWx'>
+      <image src='/img/wxPay.png'></image>
+      <text>微信支付</text>
+      <view class='clear'></view>
+    </view>
+    <view class='item' bindtap='goMuiltPay' wx:if="{{ requireData.discountMoney>5000 }}">
+      <image src='/img/muiltPay.png'></image>
+      <text>分多次支付</text>
+      <view class='clear'></view>
+    </view>
+  </view>
+

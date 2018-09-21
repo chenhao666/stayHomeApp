@@ -1,0 +1,12 @@
+<view class='container'>
+  <image class='banner' src='/img/banner.gif'></image>
+  <view class='message'>
+    <view class='title'>说明：</view>
+    <view class='contain'>
+      <view>1. 设计师可针对您的户型设计全景效果图；</view>
+      <view>2. 设计师可解答您装修中遇到的问题；</view>
+      <view>3. 设计师可根据您的喜好，推荐您适合的软装；</view>
+      <view>4. 下单前，意向金随时可退，下单时，意向金可抵扣定金金额；</view>
+    </view>
+  </view>
+</view>

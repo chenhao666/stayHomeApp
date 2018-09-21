@@ -1,0 +1,9 @@
+<!--pages/order/payfail/payfail.wxml-->
+<view class='container'>
+  <view class='bg_h'></view>
+  <image src='/img/payfail.png'></image>
+  <text>如果您的订单金额超过支付限额，您可在支付时选择“分多次支付”，根据自己的支付额度，分多次进行支付</text>
+  <view class='buttonGroup'>
+    <view class='pay' bindtap='goPay'>再次支付</view>
+  </view>
+</view>

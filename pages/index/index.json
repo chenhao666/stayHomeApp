@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+    "component-programme-list": "/pages/component/list/programmeList"
+  }
+}

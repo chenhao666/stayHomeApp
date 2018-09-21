@@ -1,0 +1,42 @@
+<!--首页-->
+<view class='container'>
+  <view class='header'>
+    <image src='../../img/logo.png' class='logo'></image>
+    <view class='location'>
+      <text>{{ location }}</text>
+      <image src='/img/location.png'></image>
+    </view>
+    <!--<view class='chat'>
+      <image src='/img/chat.png' bindtap='goChat'></image>
+    </view>-->
+    <view class='clear'></view>
+  </view>
+
+  <!--banner-->
+  <swiper indicator-dots="{{indicatorDots}}"
+    autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" circular="true" class='banner'>
+    <block wx:for="{{imgUrls}}" wx:key='{{ key }}'>
+      <swiper-item>
+        <image src="{{item.bannerImg}}" bindtap='bannerTap' data-index='{{ index }}'  data-type='{{ item.type }}'  class="slide-image" width="355" height="150"/>
+      </swiper-item>
+    </block>
+  </swiper>
+
+  <!--选项卡-->
+  <view class='tab {{ fixedTab ? "fixedTab" : "" }}' id='tab'>
+    <view wx:for="{{ styleArr }}" wx:key='{{ index }}' class='item {{ select==index ? "select" : "" }}' bindtap='selectStyle' data-index='{{ index }}' data-styleId='{{ item.styleId }}' style="width:{{ styleArr.length==0 ? 100 : 100/styleArr.length }}%;">
+      <image wx:if="{{ styleArr.length==1 && select==index }}" src='/img/tab_1.png' ></image>
+      <image wx:if="{{ styleArr.length==2 && select==index }}" src='/img/tab_{{ index==0 ? 0 : 2 }}.png' ></image>
+      <image wx:if="{{ styleArr.length>=3 && select==index }}" src='/img/tab_{{ index==0 ? 0 : "" }}{{ index==styleArr.length-1 ? 2 : ""}}{{ (index!=0 && index!=styleArr.length-1) ? 1: ""}}.png'></image>
+      <text>{{ item.styleName }}</text>
+    </view>
+  </view>
+  <view class='tab' hidden='{{ !fixedTab }}'>
+  </view>
+  <!--方案列表-->
+  <swiper class='programmeList' current="{{ select }}" bindchange="changeCurrent" style='height:{{ changeHeight }}px'>
+    <swiper-item  wx:for="{{ styleArr }}" wx:key='{{ index }}'>
+        <component-programme-list  id="list_item{{ index }}"  programme-index="{{ item.styleId }}" bind:changeHeight="OnChangeHeight"></component-programme-list>
+    </swiper-item>
+  </swiper>
+</view>

@@ -1,0 +1,37 @@
+<view class='container'>
+  <button class='user_info' open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">
+    <image src='{{ loginFlag ? userPhoto : "/img/photo.png" }}'></image>
+    <text>{{ loginFlag ? nickName : "点击登录" }}</text>
+    <view style='clear:both'></view>
+  </button>  
+  
+  <view class='user_item' style="margin-top:20rpx;border-top:none;" bindtap='programmeManage'>
+    <view class='iconfont icon-work-copy'></view>
+    <text>我的方案</text>
+    <image src='/img/icon_more.png' class='more'></image>
+    <view class='clear:both'></view>
+  </view>
+
+  <view class='user_item' bindtap='myOrder'>
+    <view class='iconfont icon-icon3' style='background:#F08689;'></view>
+    <text>我的订单</text>
+    <image src='/img/icon_more.png' class='more'></image>
+    <view class='clear:both'></view>
+  </view>
+
+  <view class='user_item' bindtap='addressManage'>
+    <view class='iconfont icon-address' style='background:#70F1F0;'></view>
+    <text>地址管理</text>
+    <image src='/img/icon_more.png' class='more'></image>
+    <view class='clear:both'></view>
+  </view>
+
+  <!--<navigator url="/pages/user/setting/setting">
+  <view class='user_item'>
+    <view class='iconfont icon-shezhi' style='background:#198AC7;'></view>
+    <text>设置</text>
+    <image src='/img/icon_more.png' class='more'></image>
+    <view class='clear:both'></view>
+  </view>
+  </navigator>-->
+</view>

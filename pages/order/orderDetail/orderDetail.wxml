@@ -1,0 +1,184 @@
+<!--确认订单-->
+<view class='container' wx:if="{{defaultAddress ==1}}">
+  <view class='main'>
+    <view class='orderStatus status0' wx:if='{{orderStatus === 0}}'>
+      <text>待付款</text>
+      <view class='orderNum'>
+        <view class='left'>订单编号:{{ orderNumber }}</view>
+        <view class='right' bindtap='copyNum'>复制</view>
+        <view class='clear'></view>
+      </view>
+    </view> 
+    <view class='orderStatus status2' wx:if='{{orderStatus === 1}}'>
+      <text>已支付</text>
+      <view class='orderNum'>
+        <view class='left'>订单编号：{{ orderNumber }}</view>
+        <view class='right' bindtap='copyNum'>复制</view>
+        <view class='clear'></view>
+      </view>
+
+      <view class='payTime'>支付时间：{{ payTime }}</view>
+    </view> 
+      <view class='orderStatus status7' wx:if='{{orderStatus === 7}}'>
+      <text>已取消</text>
+      <view class='orderNum'>
+        <view class='left'>订单编号：{{ orderNumber }}</view>
+        <view class='right' bindtap='copyNum'>复制</view>
+        <view class='clear'></view>
+      </view>
+    </view> 
+      <view class='orderStatus status2' wx:if='{{orderStatus === 2}}'>
+      <text>已发货</text>
+      <view class='orderNum'>
+        <view class='left'>订单编号：{{ orderNumber }}</view>
+        <view class='right' bindtap='copyNum'>复制</view>
+        <view class='clear'></view>
+      </view>
+
+      <view class='payTime'>支付时间：{{ payTime }}</view>
+    </view> 
+      <view class='orderStatus status2' wx:if='{{orderStatus === 3}}'>
+      <text>已到货</text>
+      <view class='orderNum'>
+        <view class='left'>订单编号：{{ orderNumber }}</view>
+        <view class='right' bindtap='copyNum'>复制</view>
+        <view class='clear'></view>
+      </view>
+
+      <view class='payTime'>支付时间：{{ payTime }}</view>
+    </view> 
+    <view class='orderStatus status2' wx:if='{{orderStatus === 8}}'>
+      <text>已完成</text>
+      <view class='orderNum'>
+        <view class='left'>订单编号：{{ orderNumber }}</view>
+        <view class='right' bindtap='copyNum'>复制</view>
+        <view class='clear'></view>
+      </view>
+
+      <view class='payTime'>支付时间：{{ payTime }}</view>
+    </view> 
+    <view class='orderStatus status7' wx:if='{{orderStatus === 9}}'>
+      <text>已关闭</text>
+      <view class='orderNum'>
+        <view class='left'>订单编号：{{ orderNumber }}</view>
+        <view class='right' bindtap='copyNum'>复制</view>
+        <view class='clear'></view>
+      </view>
+    </view> 
+    <view class='header'>
+      <view class='header_address'>
+        <image class='address_icon' src='/img/confirm_address.png'></image>
+      </view>
+     
+      <view class='person'> 
+        <text class='header_name'>{{addressData.linkman}}</text>
+        <text class='header_tel'>{{addressData.linkMobileNum}}</text>
+      </view>
+      <view class='address'>
+        <text>{{addressData.province}}{{addressData.city}}{{addressData.distincts}}{{addressData.address}}</text> 
+      </view>
+    </view>
+    <view class='contain'>
+        <view class='first_floor'>
+          <text class='spec_now'>{{addressData.styleName}}</text>
+          <text class='spec_home'>{{addressData.brandName}}</text>
+        </view> 
+      <view wx:for="{{requireData}}" wx:key='index' class='mainContain'>
+        <view class='second_floor'>
+          <text class='second_yel'></text>
+          <text class='second_title'>{{item.packageName}}</text>
+        </view>
+        <view class='third_floor'>
+        <view class='list' wx:for="{{ item.orderDetails }}" wx:key='index' wx:for-item='listItem'>
+          <view class='third_left'>
+            <image mode="aspectFit" src='{{ listItem.imageUrl }}' bindtap='showDetail' data-data="{{item.orderDetails}}" data-index="{{index}}" data-type="1"></image>
+            <!--<text>{{ listItem.brand }}</text>-->
+          </view>
+          <view class='third_right' >
+            <view class='right_title' style='padding-left:{{ listItem.species=="组合" || listItem.species=="商品" ? 70 : 0 }}rpx;'> <text wx:if="{{ listItem.species=='组合' }}" class='red_bg'>组合</text>{{ listItem.name }}</view>
+            <!--<view class='right_texture'>
+              <text class='name'>颜色材质:</text>
+              <text class='data'>{{ listItem.material}}</text>
+            </view>-->
+            <view class='right_size'>
+              <text class='data'>{{listItem.specifications}}</text>
+            </view>
+            <view class='right_sum'>
+              <text class='right_money'>￥{{listItem.unitPrice/100}}</text>
+              <text class='right_amount'>x{{listItem.number}}</text>
+            </view>
+          </view>
+          <view class='clear'></view>
+           <!--子商品-->
+            <view class='childGoods' wx:for="{{ listItem.groupInfoList }}" wx:key='index' wx:for-index="childIndex" wx:for-item='childlListItem'>
+                <view class='childImg'>
+                  <image mode="aspectFit" src='{{ childlListItem.imageUrl  }}'  bindtap='showDetail' data-data="{{listItem.groupInfoList}}" data-index="{{childIndex}}" data-type="2"></image>
+                 <!-- <text class='brandName'>{{ childlListItem.brandName }}</text>-->
+                </view>
+                <view class='discription'>
+                  <view class='title' style='padding-left:80rpx;'>
+                    <view class='red_bg'>商品{{ childIndex+1 }}</view>
+                    {{ childlListItem.name }}
+                  </view>
+                  <view class='right_texture'>
+                      
+                  </view>
+                  <view class='model'>
+                    {{ childlListItem.specifications }}
+                    <view class='num'>x{{ childlListItem.number }}</view>
+                  </view>
+                </view>
+              <view class='clear'></view>
+            </view>
+        </view>
+      </view>
+     
+    </view>
+      <view class='third_footer'>
+        <view class='total' wx:if="{{ addressData.preferentialAmount!=0 }}">
+          <text class='total_title'>总计:</text>
+          <text class='total_data'>{{addressData.totalAmout/100}}</text>
+        </view>
+        <view class='sub' wx:if="{{ addressData.preferentialAmount!=0 }}">
+          <text class='sub_title'>优惠:</text>
+          <text class='sub_data'>-￥{{addressData.preferentialAmount/100}}</text>
+        </view>
+        <view class='result'>
+          <text class='result_title'>合计:</text>
+          <text class='result_data'>￥{{addressData.actualAmount/100}}</text>
+        </view>
+       </view>
+      </view>
+    <view class='footer' wx:if='{{orderStatus === 0}}'>
+      <text class='submit'>
+        <text class='submit_title'>待付:</text>
+        <text class='submit_data'>￥{{addressData.remainAmount/100}}</text>
+      </text>
+      <text class='payment' bindtap='goPay'>去付款</text>
+      <text class='cancel' bindtap='cancelPay'>取消订单</text>
+      
+    </view>
+  </view>
+</view>
+
+<!--遮罩层-->
+  <view class='mask' bindtap='closeMask' hidden="{{ maskHidden }}" bindtap='closePay'></view>
+  <!--弹出层-->
+  <view class='animateBox' animation="{{animationData}}" hidden="{{ maskHidden }}">
+    <view class='close'>
+      <image src='/img/close.png' bindtap='closePay'></image>
+      <view class='clear'></view>
+    </view>
+    <view class='item' bindtap='payWx'>
+      <image src='/img/wxPay.png'></image>
+      <text>微信支付</text>
+      <view class='clear'></view>
+    </view>
+    <view class='item' bindtap='goMuiltPay' wx:if="{{ addressData.remainAmount/100 >5000 }}">
+      <image src='/img/muiltPay.png'></image>
+      <text>分多次支付</text>
+      <view class='clear'></view>
+    </view>
+  </view>
+
+

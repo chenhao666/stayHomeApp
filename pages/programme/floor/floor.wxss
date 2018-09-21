@@ -1,0 +1,40 @@
+/* pages/programme/floor/floor.wxss */
+page{
+  background: #f7f8fa;
+  padding-bottom:40rpx; 
+}
+.floorList{
+  width: 100%;
+  padding:0rpx 20rpx;
+  box-sizing: border-box;
+}
+.floorList .item{
+  width: 100%;
+  margin-top: 30rpx;
+  overflow: hidden;
+  border-radius:20rpx;
+  background: #ffffff; 
+  box-shadow:3px 2px 3px 3px #9AA1AF;
+}
+.floorList .item image{
+  display: block;
+  width: 100%;
+  height: 430rpx;
+}
+.discribe{
+    padding:30rpx 30rpx;
+    box-sizing: border-box;
+}
+.discribe .title{
+  font-size: 30rpx;
+  color: #3F3F3F;
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-weight: bold;
+}
+.discribe .address{
+  font-size: 24rpx;
+  margin-top: 24rpx;
+}

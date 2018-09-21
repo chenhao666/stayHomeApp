@@ -1,0 +1,57 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/user/user",
+    "pages/programme/floor/floor",
+    "pages/component/list/programmeList",
+    "pages/programme/house/house",
+    "pages/component/info/info",
+    "pages/programme/programmeInfo/programmeInfo",
+    "pages/user/setting/setting",
+    "pages/chat/chatroom/chatroom",
+    "pages/chat/chat",
+    "pages/programme/showThree/showThree",
+    "pages/order/productList/productList",
+    "pages/order/confirm/confirm",
+    "pages/user/register/register",
+    "pages/order/selectAddress/selectAddress",
+    "pages/order/updataAddress/updataAddress",
+    "pages/order/myOrder/myOrder",
+    "pages/programme/myprogramme/myprogramme",
+    "pages/order/orderDetail/orderDetail",
+    "pages/order/productDetail/productDetail",
+    "pages/order/addAddress/addAddress",
+    "pages/order/payfail/payfail",
+    "pages/order/muiltPay/muiltPay"
+  ],
+  "window": {
+    "backgroundTextStyle": "dark",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "窝家里",
+    "navigationBarTextStyle": "black",
+    "enablePullDownRefresh": true
+  },
+  "tabBar": {
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "iconPath": "img/home_ico.png",
+        "selectedIconPath": "img/home_select.png",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/user/user",
+        "iconPath": "img/user.png",
+        "selectedIconPath": "img/user_select.png",
+        "text": "我的"
+      }
+    ],
+    "selectedColor": "#3F3F3F",
+    "backgroundColor": "#ffffff"
+  },
+  "networkTimeout": {
+    "request": 10000,
+    "uploadFile": 10000,
+    "downloadFile": 10000
+  }
+}

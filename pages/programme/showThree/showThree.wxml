@@ -1,0 +1,3 @@
+<!--pages/programme/showThree/showThree.wxml-->
+<web-view src="{{ url }}"></web-view>
+

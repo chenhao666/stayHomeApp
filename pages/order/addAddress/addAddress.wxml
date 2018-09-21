@@ -1,0 +1,42 @@
+ <view class='container'>
+  <view class='user_message'>
+    <form bindsubmit='bindFormSubmit'>
+      <view class='message'>
+        <text class='message_title'>联系人</text>
+        <input placeholder-class="phcolor" class='message_value' placeholder='请输入姓名' name='linkman' value='{{requireData.linkman}}'></input> 
+      </view>
+      <view class='message'>
+        <text class='message_title'>电话</text>
+        <input placeholder-class="phcolor" class='message_value' placeholder='请输入电话' name='mobileNum' value='{{requireData.mobileNum}}'></input> 
+      </view>
+      <view class='message'>
+        <text class='message_title'>所在地区</text>
+        <!--地区选择器 -->
+           <picker mode="multiSelector" bindchange="bindRegionChange" range-key="{{ 'value' }}" bindcolumnchange="bindMultiPickerColumnChange" bindcancel="bindcancel" range="{{ region }}" data-province='{{region[0][multiIndex[0]].value}}' data-provinceId='{{region[0][multiIndex[0]].index}}' data-city='{{region[1][multiIndex[1]].value}}' data-cityId='{{region[1][multiIndex[1]].index}}' data-distincts='{{region[2][multiIndex[2]].value}}' data-distinctId='{{region[2][multiIndex[2]].index}}' value="{{multiIndex}}">
+
+          <view class="message_value" wx:if="{{isShow}}">
+            {{region[0][multiIndex[0]].value}} {{region[1][multiIndex[1]].value}} {{region[2][multiIndex[2]].value}}
+          </view>
+
+          <view class="message_default" wx:else bindtap='isShow'>
+           
+            <view class='addPage' wx:if='{{pageStu}}'>
+              <text class='newAdd'>请选择</text>
+              <image src='/img/confirm_right.png'></image>
+            </view>
+            <text class='updata' wx:else>{{requireData.province}} {{requireData.city}} {{requireData.distincts}}</text>
+          </view>  
+        </picker>   
+
+      </view> 
+      <view class='message'>
+        <text class='message_title'>详细地址</text>
+        <input placeholder-class="phcolor" class='message_value' placeholder='楼、幢、单元号' name='address' value='{{requireData.address}}'></input>
+      </view>
+      <view class='btnType'>
+        <button class='btn'  form-type="submit">保存</button>
+      </view>
+    </form>
+  </view>
+
+</view>

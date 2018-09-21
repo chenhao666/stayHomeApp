@@ -1,0 +1,48 @@
+<!--pages/programme/programmeInfo/programmeInfo.wxml-->
+<view class='container'>
+  <!--头部-->
+  <view class='header'>
+    <view class='box' style="width:{{ styleArr.length*140 }}rpx;">
+      <view wx:for="{{ styleArr }}" wx:key="{{ index }}" class='item {{ index==selectStyle ? "active" :"" }} ' bindtap='selectStyle' data-index='{{ index }}' data-styleId="{{ item.styleId }}">
+        <text>{{ item.styleName }}</text>
+      </view>
+      <view class='clear'></view>
+    </view>
+  </view>
+  <!--头部结束-->
+
+  <!--品牌-->
+  <view class='brandList'>
+    <view class='box' style="width:{{ brandArr.length*250 }}rpx;">
+       <view wx:for="{{ brandArr }}" wx:key="{{ index }}" class='item {{ index==selectBrand?"active" :"" }} ' bindtap='selectBrand' data-index='{{ index }}'>
+         <text>{{ item.brandName }}</text>
+       </view>
+    </view>
+  </view>
+  <!--品牌结束-->
+
+  <!--品牌切换-->
+  <swiper class='programmeList' current="{{ selectBrand }}" bindchange="changeCurrent" style='height:{{ changeHeight }}px'>
+    <swiper-item wx:for="{{ brandArr }}" wx:key="{{ index }}">
+        <component-programme-list programme-index="{{ item.id }}" id="list_item{{ index }}" bind:changeHeight="OnChangeHeight"></component-programme-list>
+    </swiper-item>
+  </swiper>
+  <!--品牌切换结束-->
+  <!--底部浮动-->
+  <view class='footer'>
+    <!--<view class='item' bindtap='connectCustomer'>
+      <image src='/img/customer.png'></image>
+      <text>客服</text>
+      <view class='clear'></view>
+    </view>
+    <view class='item' bindtap='connectDesigner'>
+      <image src='/img/designer.png'></image>
+      <text>设计师</text>
+      <view class='clear'></view>
+    </view>-->
+    <view class='item'>
+      <button bindtap='goProductList'>商品列表</button>
+    </view>
+  </view>
+  <!--底部浮动结束-->
+</view>

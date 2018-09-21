@@ -1,0 +1,25 @@
+<view class='container'>
+  <view class='my_programme' wx:for='{{requireData}}' wx:key='index' wx:if='{{notMessage == false}}'>
+    <view class='programme_img'>
+      <image class='main_img' src='{{item.houseModelUrl}}'></image>
+        <navigator class='show_img' url="/pages/programme/showThree/showThree?url={{ item.threeDurl }}">
+          <image class='middle_img' src='/img/programD.png'></image>
+        </navigator>
+        <button class='shareBtn' open-type='share' data-index = '{{index}}' bindtap='onShareAppMessage'>
+          <image class='right_img' src='/img/share.png'></image>
+        </button>
+    </view>
+    <view class='message'>
+      <text class='title'>{{item.styleName}}-{{item.desigName}}</text>
+      <view class='message_right'>
+        <text class='delete' bindtap='deleteProgram' data-id='{{item.id}}'>删除方案</text>
+        <text class='list' bindtap='programList' data-index="{{index}}">商品列表</text> 
+      </view>
+   
+    </view>
+  </view>
+   <view class='no_address' wx:if='{{notMessage == true}}'>
+    <image src='/img/noPlan.png'></image>
+    <view>暂时没有方案哦</view>
+  </view>
+</view>

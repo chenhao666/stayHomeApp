@@ -1,0 +1,40 @@
+<view class='container'>
+  <view class='no_address' wx:if='{{ orderList.length==0 }}'>
+    <image src='/img/noOrder.png'></image>
+    <view>暂时没有订单哦</view>
+  </view>
+  <view class='orderList'>
+    <view class='item_list' wx:for='{{orderList}}' wx:key='index' bindtap='showDetail' data-index='{{index}}'>
+       <view class='first-floor'> 
+        <text class='time'>{{item.createTime}}</text>  
+        <text class='status status0' wx:if='{{item.orderStatus == 0}}'>待付款</text>
+        <text class='status status1' wx:if='{{item.orderStatus == 1}}'>已支付</text>
+        <text class='status status1' wx:if='{{item.orderStatus == 2}}'>已发货</text>
+        <text class='status status1' wx:if='{{item.orderStatus == 3}}'>已到货</text>
+        <text class='status status4' wx:if='{{item.orderStatus == 4}}'>退货申请</text>
+        <text class='status status5' wx:if='{{item.orderStatus == 5}}'>退货中</text> 
+        <text class='status status6' wx:if='{{item.orderStatus == 6}}'>已退货</text>
+        <text class='status status7' wx:if='{{item.orderStatus == 7}}'>已取消</text>
+        <text class='status status1' wx:if='{{item.orderStatus == 8}}'>已完成</text>
+        <text class='status status7' wx:if='{{item.orderStatus == 9}}'>已关闭</text> 
+       </view> 
+      <view class='imgList'>
+        <view class='img' wx:for='{{item.imageUrlList}}' wx:for-item="items" wx:for-index="itemsIndex" wx:key='index'>
+          <image  mode="aspectFit"  src='{{item.imageUrlList[itemsIndex]}}'></image>
+        </view>
+      </view>
+      <view class='message'>
+        <text class='total_price'>
+          <text class='total'>合计：</text>
+           <text class='price'>￥{{item.actualAmount/100}}</text> 
+        </text>
+         <text class='total_num'>
+           <text>共{{item.ordersSum}}件商品</text>
+        </text> 
+        <text class='payment' wx:if="{{item.orderStatus == 0}}">     
+          <text class='gopay'>去付款</text>
+        </text>
+      </view>
+    </view>
+  </view>  
+</view>

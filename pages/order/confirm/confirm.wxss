@@ -1,0 +1,465 @@
+page{
+  background-color: #f7f8fa;
+  padding-bottom: 160rpx;
+}
+.main{
+  width: 100%;
+  overflow: hidden;
+}
+.header{
+  height: 105rpx;
+  position: relative;
+  text-align: left;
+  margin: 1rpx 0 0rpx 0; 
+  background-color: #ffffff;
+}
+.agreement{
+  margin-bottom: 20rpx;
+  margin-top: 2rpx;
+  background: #ffffff;
+  padding: 40rpx 40rpx;
+  width: 100%;
+  box-sizing: border-box;
+}
+.agreement .checkbox{
+  float: left;
+  margin-top: 2rpx;
+  width: 26rpx;
+  height: 26rpx;
+}
+.agreement .font{
+  float: left;
+  height: 30rpx;
+  line-height: 30rpx;
+  font-size: 24rpx;
+  margin-left: 30rpx;
+}
+.agreement text{
+  color: #F2CD0B;
+}
+.header_address .address_icon{
+  width: 30rpx;
+  height: 30rpx;
+  position: absolute;
+  top: 39rpx;
+  left: 36rpx;
+}
+.person{
+  width: 100%;
+  font-family: PingFang-SC-Bold;
+  font-size: 26rpx;
+  font-weight: bold;
+  line-height: 62rpx;
+}
+.header_name{
+  width: 78rpx;
+  height: 25rpx;
+  color: #3b3b3b;
+  letter-spacing: 25;
+  margin: 19rpx 0 0 92rpx;
+}
+.header_tel{
+  width: 169rpx;
+  height: 20rpx;
+  margin-left: 14rpx;
+  color: #3a3a3a;
+}
+.header_right .right_icon{
+  width: 30rpx;
+  height: 30rpx;
+  position: absolute;
+  top: 40rpx;
+  right:40rpx;
+}
+.address text{
+  font-size: 22rpx;
+  position: absolute;
+  width: 500rpx;
+  top: 57rpx;
+  left: 92rpx;
+  font-family: PingFang-SC-Medium;
+  color: #3f3f3f;
+  font-weight: Medium;
+  line-height: 34rpx;
+  letter-spacing: 25;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap
+}
+.first_floor{
+  width: 750rpx;
+  height: 65rpx;
+  font-family: PingFang-SC-Bold;
+  font-weight: bold;
+  text-align: left;
+  color: #8e8e8e;
+  font-size: 22rpx;
+  letter-spacing: 20;
+  line-height: 65rpx;
+  background-color: #ffffff;
+  padding-left: 20rpx;
+}
+.first_floor .spec_now{
+  border-right: 6rpx solid #F7F8FA;
+  padding-right:17rpx;
+}
+.spec_home{
+  padding-left: 17rpx
+}
+.second_header{
+  overflow: hidden;
+  height: 58rpx;
+  margin-top: 1rpx;
+  background-color: #ffffff;
+  font-family: PingFang-SC-Medium;
+  font-size: 24rpx;
+  color: #3b3b3b;
+  font-weight: Medium;
+}
+ .second_yel{
+  width: 8rpx;
+  height: 35rpx;
+  float: left;
+  background-color: #F2CD0B;
+  margin: 15rpx 0 0 20rpx;
+  display: inline-block;
+}
+.second_title{
+  float: left;
+  margin: 16rpx 0 0 17rpx;
+} 
+.mainContent{
+  width: 100%;
+  box-sizing: border-box;
+  border-top: 1px solid #f7f8fa;
+}
+.list{
+  overflow: hidden;
+  margin-top: 1rpx;
+  background-color: #ffffff;
+}
+.third_left{
+  float: left;
+  font-size: 0;
+  padding: 20rpx;
+  position: relative;
+}
+.third_left image{
+  width: 160rpx;
+  height: 160rpx;
+  border-radius: 8rpx;
+  border: 1rpx solid #F2F2F2;
+  display: block;
+  box-sizing: border-box;
+}
+.third_left text{
+  background-color: #000000;
+  border-bottom-left-radius: 8rpx;
+  opacity: 0.5;
+  max-width: 100%;
+  color: #ffffff;
+  height: 30rpx;
+  line-height: 30rpx;
+  font-family: PingFang-SC-Medium;
+  font-weight: Medium;
+  font-size: 18rpx;
+  text-align: center;
+  position: absolute;
+  bottom: 20rpx;
+  left: 20rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap
+}
+.third_right{
+  display: flex;
+  width: 500rpx;
+  margin-left: 20rpx;
+  height: 160rpx;
+  padding: 20rpx;
+  padding-left: 0rpx;
+  flex-direction:column;
+  justify-content:space-between;
+  font-family: PingFang-SC-Bold;
+  font-size: 20rpx;
+  letter-spacing: 20;
+}
+.right_title{
+  height: 30rpx;
+  font-size: 24rpx;
+  color: #3F3F3F;
+  box-sizing: border-box;
+  font-weight: bold;
+  position: relative;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 100%;
+}
+.right_texture{
+  font-family: PingFang SC;
+  font-weight: Medium;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width:440rpx;
+  color: #8E8E8E;
+  font-size: 20rpx;
+}
+
+.right_texture .name{
+  color: #8E8E8E
+}
+.right_size .name{
+  color: #8E8E8E
+}
+.right_size{
+  height: 19rpx;
+  font-family: PingFang SC;
+  font-weight: Medium;
+}
+
+.right_sum{ 
+  height: 18rpx;
+  line-height: 18rpx;
+  text-align:right;
+  width:500rpx;
+}
+.right_money{
+  color: #FF4835;
+  width:65rpx;
+  display:inline-bock;
+  float:left;
+  text-align: left;
+}
+
+.third_footer{
+  text-align: right;
+  font-family: PingFang SC;
+  font-weight: Medium;
+  font-size: 20rpx;
+  padding-right: 20rpx;
+  background-color: #ffffff;
+}
+.total{
+  padding-top: 31rpx;
+  margin-top: 1rpx;
+}
+.sub{
+  padding-top: 18rpx;
+}
+.result{
+  padding-top: 39rpx;
+  padding-bottom: 21rpx;
+  margin-top: 1rpx;
+}
+.total_data,.sub_data{
+  color: #3F3F3F
+}
+.result_data{
+  color: #FF4835;
+  font-weight: Bold;
+  font-size: 24rpx;
+}
+.total_title,.sub_title,.result_title{
+  color: #8E8E8E; 
+  margin-right: 10rpx;
+}
+.footer{
+  width: 100%;
+  height: 98rpx;
+  line-height: 98rpx;
+  background-color: #ffffff;
+  position: fixed;
+  bottom: 0;
+}
+.submit{
+ padding-top: 36rpx;
+ padding-left: 19rpx;
+}
+.submit_title{
+  font-family: PingFang SC;
+  font-size: 26rpx;
+  font-weight: Medium;
+  color: #3F3F3F;
+}
+.submit_data{
+  font-family: PingFang SC;
+  font-weight: Bold;
+  color: #FF4835;
+  font-size: 30rpx;
+  margin-left: 20rpx;
+}
+.payment{
+  width: 248rpx;
+  height: 98rpx;
+  line-height: 98rpx;
+  float: right;
+  text-align: center;
+  color: #FFFEFE;
+  font-family: PingFang-SC-Bold;
+  font-weight: Bold;
+  font-size: 30rpx;
+  letter-spacing: -5;
+  background: linear-gradient(to right,#F2CD0B,#F2AE0B)
+}
+.orderStatus{
+  color: #ffffff;
+  height: 105rpx;
+  line-height: 105rpx;
+  font-size: 30rpx;
+  font-family: PingFang-SC-Bold;
+  font-weight: Bold;
+  text-align: left;
+  padding-left: 50rpx;
+}
+.status0{
+  background: linear-gradient(to right, #EB3E58, #EB5558);
+}
+.status7{
+  background-color: #787878;
+}
+.status2{
+  background: linear-gradient(to right, #F2CD0B, #FF8B35);
+}
+.defaultView{
+  margin-left: 92rpx;
+  height: 105rpx;
+  line-height: 105rpx;
+  font-family: PingFang-SC-Bold;
+  font-weight: Bold;
+  color: #3B3B3B;
+  font-size: 26rpx;
+}
+.red_bg{
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  padding: 0rpx 10rpx;
+  height: 30rpx;
+  line-height: 30rpx;
+  background:#FFDBD7;
+  font-size: 22rpx;
+  color: #F6695B;
+  border-radius: 5rpx; 
+}
+
+.childGoods{
+  position: relative;
+  width: 100%;
+  padding-left: 60rpx;
+  border-top: 1rpx solid #F7F8FA; 
+}
+.childImg{
+  position: relative;
+  float: left;
+  width: 118rpx;
+  height: 118rpx;
+  padding: 30rpx 0px;
+  overflow: hidden;
+}
+.childImg image{
+  width: 118rpx;
+  height: 118rpx;
+  border-radius: 8rpx;
+  border:1px solid #f2f2f2;
+  box-sizing: border-box;
+}
+.childGoods .discription{
+  height: 118rpx;
+  padding: 30rpx 0px;
+  float: left;
+  display: flex;
+  flex-direction:column;
+  width: 500rpx;
+  justify-content:space-between;
+  margin-left: 40rpx;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.childGoods .discription .title{
+  position: relative;
+  font-size: 22rpx;
+  height: 30rpx;
+  line-height: 30rpx;
+  font-weight: bold;
+  width: 100%;
+  box-sizing: border-box;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.childGoods .discription .model{
+  font-size: 20rpx;
+  height: 30rpx;
+  line-height: 30rpx;
+  font-weight: 400;
+  width: 100%;
+  box-sizing: border-box;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  color: #3B3B3B;
+}
+.childGoods .discription .num{
+  float: right;
+  margin-right:15rpx;
+}
+
+.childImg text{
+  position: absolute;
+  bottom: 30rpx;
+  left: 0rpx;
+  background: rgba(0,0,0,0.5);
+  font-size: 18rpx;
+  color: #ffffff;
+  max-width: 100%;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  padding: 8rpx 5rpx;
+  box-sizing: border-box;
+  border-bottom-left-radius: 8rpx;
+}
+.animateBox{
+  width: 100%;
+  position: fixed;
+  bottom: 0rpx;
+  left: 0px;
+  background: #ffffff;
+  z-index: 99;
+}
+.animateBox .item{
+  width: 100%;
+  height: 140rpx;
+  border-top: 1rpx solid #F7F8FA;
+}
+.animateBox .item image{
+  width: 80rpx;
+  height: 80rpx;
+  float: left;
+  margin-top: 30rpx;
+  margin-left: 60rpx;
+}
+.animateBox .item text{
+  float: left;
+  font-size: 26rpx;
+  color: #3F3F3F;
+  height: 30rpx;
+  line-height: 30rpx;
+  margin-top: 55rpx;
+  margin-left: 45rpx;
+}
+.animateBox .close{
+  height: 60rpx;
+}
+.animateBox .close image{
+  width: 30rpx;
+  height: 30rpx;
+  float: left;
+  margin-top: 15rpx;
+  margin-left: 30rpx;
+}
+
+

@@ -1,0 +1,25 @@
+<!--pages/chat/chat.wxml-->
+<view class='container'>
+  <view class='empty' wx:if="{{ show }}">
+      <image src='/img/chatEmpty.png'></image>
+      <text>暂时没有消息哦</text>
+  </view>
+
+  <view class='chatList'>
+    <!--列表-->
+    <view class='item' wx:for="{{ linkList }}" wx:key="{{ index }}" bindtap='goChatRoom' data-user='{{ item.name }}' wx:if='{{ item.lastChat=="" ? false : true }}'>
+      <view class='box'>
+        <image src='{{ item.name=="customerservice" ? customerServicePic : designerPic }}'></image>
+        <view  class='num'  hidden='{{ item.num == 0 }}'>{{ item.num }}</view>
+      </view>
+      <view class='info'>
+        <view class='chat_user'>{{ item.name=="customerservice" ? "客服" : "设计师" }}</view>
+        <view class='content'>{{ item.lastChat }}</view>
+      </view>
+
+      <view class='time'>{{ item.time }}</view>
+      <view class='clear'></view>
+    </view>
+    <!--列表结束-->
+  </view>
+</view>

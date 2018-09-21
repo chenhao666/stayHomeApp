@@ -1,0 +1,56 @@
+<!--pages/programme/house/house.wxml-->
+<view class='container {{ maskHidden ?"" : "bodyOverflow" }}'>
+  <view class='header'>
+    <view class='item area {{ area==""?"":"active" }}' bindtap='filterHouse' data-index='0'>
+      <view class='box'>
+        <text>{{ (area=="" || area=="全部") ? "面积" : area+"㎡"}}</text>
+        <image src='/img/down.png'></image>
+        <view class='clear'></view>
+      </view>
+    </view>
+    <view class='item home {{ home==""?"":"active" }}' bindtap='filterHouse' data-index='1'>
+       <view class='box'>
+        <text>{{ (home=="" || home=="全部") ? "居室" : home }}</text>
+        <image src='/img/down.png'></image>
+        <view class='clear'></view>
+      </view>
+    </view>
+    <view class='clear'></view>
+  </view>
+
+  <view class='houseList'>
+    <view class='empty' wx:if="{{ houseList.length==0 }}">
+      <image src='/img/houseEmpty.png'></image>
+      <text>暂无符合条件的户型</text>
+    </view>  
+    <!--列表-->
+    <navigator wx:for="{{ houseList }}" wx:key="{{ index }}" url="/pages/programme/programmeInfo/programmeInfo?styleId={{ item.styleId }}&brandId={{ item.brandId }}&houseId={{ item.houseId }}&houseTypeName={{ item.houseTypeName }}">
+    <view class='item'>
+      <image src='{{ item.houseModelUrl }}'></image>
+      <view class='discribe'>
+        <view class='title'>{{ item.houseModel }}</view>
+        <view class='info'>
+          <text class='home'>{{ item.houseTypeName }}</text>
+          <text class='area'>{{ item.houseArea }}㎡</text>
+          <view class='clear'></view>
+        </view>
+      </view>
+    </view>
+    </navigator>
+    <!--列表结束-->
+  </view>
+
+  <!--遮罩层-->
+  <view class='mask' hidden="{{ maskHidden }}"></view>
+  <!--弹出层-->
+  <view class='animateBox' animation="{{animationData}}" hidden="{{ maskHidden }}">
+    <view class='item' wx:for="{{ areaArr }}"   wx:key="index" hidden='{{ selectIndex==1 }}' data-index="{{ index }}" bindtap='selectHome'>
+      {{ item.houseArea== "全部" ? "全部" : item.houseArea+"㎡" }}
+      <image src='/img/select_ico.png' hidden='{{ item.houseArea==area ? false : true }}'></image>
+    </view>
+    <view class='item' wx:for="{{ homeArr }}"   wx:key="index" hidden='{{ selectIndex==0 }}' data-index="{{ index }}" bindtap='selectHome'>
+     {{ item.houseTypeName }}
+     <image src='/img/select_ico.png' hidden='{{ item.houseTypeName==home ? false : true }}'></image>
+    </view>
+  </view>
+</view>

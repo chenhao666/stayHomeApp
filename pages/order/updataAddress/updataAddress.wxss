@@ -1,0 +1,84 @@
+page{
+  background-color: #f7f8fa;
+}
+.user_message{
+  width: 750rpx;
+  background: #ffffff;
+  overflow: hidden;
+}
+.message{
+  height: 90rpx;
+  line-height: 90rpx;
+  display: flex;
+  align-items: center;
+  justify-content: left;
+}
+.message:not(:last-child){
+  margin-bottom: 1rpx;
+}
+.message_title{
+  display: inline-block;
+  font-family: PingFang-SC-Medium;
+  font-weight: Medium;
+  font-size: 26rpx;
+  color: #8E8E8E;
+  width: 139rpx;
+  text-align: left;
+  margin-left: 49rpx;
+}
+.message_value{
+  font-size:26rpx;
+  color: #3F3F3F;
+  width: 494rpx;
+  height: 90rpx;
+  line-height: 90rpx;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+}
+.message_default{
+  font-size:26rpx;
+  color: #3F3F3F;
+  width: 560rpx;
+  height: 90rpx;
+  line-height: 90rpx;
+  text-align: right;
+  position: relative;
+}
+.message_default .updata{
+  float: left;
+}
+.message_default .newAdd{
+  margin-right: 100rpx;
+  margin-top: 10rpx;
+}
+.message_default image{
+  width: 23rpx;
+  height: 28rpx;
+  position: absolute;
+  right: 56rpx;
+  top: 33rpx
+}
+.phcolor{
+  font-family: PingFang-SC-Medium;
+  font-weight: Medium;
+  color: #B6B6B6;
+  font-size: 26rpx;
+}
+.btnType{
+  width: 100%;
+  padding-top:25px;
+  background-color:#f7f8fa;
+}
+.btn{
+  width: 670rpx;
+  height: 100rpx;
+  line-height: 100rpx;
+  color: #ffffff;
+  background: linear-gradient(to right,#F2CD0B,#F2AE0B);
+  border-radius: 10rpx;
+  text-align: center;
+  font-family: PingFang-SC-Bold;
+  font-weight: Bold;
+  font-size: 36rpx;
+}

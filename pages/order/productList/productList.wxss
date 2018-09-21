@@ -1,0 +1,557 @@
+page{
+  background-color:#ffffff;
+} 
+.list{
+  display: inline-block;
+  width: 100%;
+  overflow: hidden;
+  margin-bottom: 98rpx;
+  position:absolute;
+  bottom:0;
+  top:0;
+  background: #F7F8FA;
+
+}
+.list_left{
+  width: 160rpx;
+  text-align: center;
+  border-right: 1rpx solid #f7f8fa;
+  float: left;
+  border-top:1rpx solid #f7f8fa;
+  background-color: #ffffff;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 10rpx;
+  box-sizing: border-box;
+}
+.list_text{
+  font-family: PingFang-SC-Medium;
+  color: #8E8E8E;
+  font-size: 26rpx;
+  letter-spacing: 20;
+  position: relative;
+  font-weight:500;
+}
+.text_active{
+  color: #F2CD0B;
+}
+.icon_active{
+  width: 6rpx;
+  height: 46rpx;
+  background-color: #F2CD0B;
+  position: absolute;
+  top: -5rpx;
+  left: 0;
+}
+.list_text:first-child{
+  padding-top: 28rpx;
+}
+.list_text:not(:first-child){
+  padding-top: 57rpx;
+}
+.list_right{
+  float: left;
+  margin: 0rpx 0rpx 0rpx 160rpx;
+}
+.wapper{
+  width: 588rpx;
+  border-top:2rpx solid #f7f8fa
+}
+.first_floor{
+  height: 65rpx;
+  position: relative;
+  background-color: #ffffff;
+}
+.first_icon{
+  width: 4rpx;
+  height: 25rpx;
+  background-color: #F2CD0B;
+  position: absolute;
+  top: 25rpx;
+  left: 20rpx;
+}
+.first_text{
+  font-family: PingFang-SC-Medium;
+  font-weight: Medium;
+  overflow: hidden;
+  color: #3B3B3B;
+  font-size: 26rpx;
+  margin-left: 38rpx;
+  float: left;
+  margin-top: 20rpx;
+}
+.first_text::after{
+  clear: both;
+  display: block;
+  height: 0;
+  content: '';
+}
+.second_floor{
+  height: 58rpx;
+  background-color: #ffffff;
+  border-top: 1rpx solid #f7f8fa;
+}
+.activity{
+  font-family: PingFang-SC-Medium;
+  font-weight: Medium;
+  font-size:  18rpx;
+  border-radius: 6rpx;
+  background:#FCF0B6;
+  padding: 4rpx 8rpx 4rpx 8rpx;
+  color: #E5AB0F;
+  float: left;
+  margin-top: 15rpx;
+  margin-left: 20rpx;
+}
+.discount{
+  font-family: PingFang-SC-Bold;
+  font-weight: Bold;
+  color: #8E8E8E;
+  font-size: 20rpx;
+  float: left;
+  margin-left: 19rpx;
+  margin-top: 19rpx;
+}
+/*商品的主体部分  */
+.third_floor::after{
+  clear: both;
+  display: block;
+  height: 0;
+  content: '';
+}
+ .third_floor{
+  background-color: #ffffff;
+}
+.content{
+  position: relative;
+  overflow: hidden;
+  border-top: 1rpx solid #F7F8FA;
+}
+.content_left{
+  float: left;
+  padding: 20px 0px;
+}
+.select_img{
+  width: 35rpx;
+  height: 35rpx;
+  position: absolute;
+  top: 83rpx;
+  left: 19rpx;
+  z-index: 9;
+}
+.product_img image{
+  display: block;
+  width: 160rpx;
+  height: 160rpx;
+  border-radius: 8rpx;
+  border: 1px solid #f2f2f2;
+  box-sizing: border-box;
+}
+.product_img{
+  position: relative;
+  margin-left:75rpx;
+  width: 160rpx;
+  height: 160rpx;
+  overflow: hidden;
+}
+.product_title{
+  box-sizing: border-box;
+  padding: 6rpx 5rpx;
+  font-family: PingFang-SC-Medium;
+  font-weight: Medium;
+  color: #ffffff;
+  background-color:rgba(0,0,0,0.5);
+  font-size: 18rpx;
+  border-bottom-left-radius: 8rpx;
+  position: absolute;
+  bottom: 0px;
+  left: 0rpx;
+  width: 150rpx;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.content_right{
+  padding: 20px 0px;
+  display: flex;
+  float: left;
+  text-align: left;
+  font-size:20rpx;
+  height: 160rpx;
+  font-family: PingFang SC;
+  font-weight: Medium;
+  color: #8E8E8E;
+  width: 300rpx;
+  flex-direction:column;
+  justify-content:space-between;
+  margin-left: 40rpx;
+}
+.right_title{
+  position: relative;
+  font-family: PingFang-SC-Bold;
+  font-weight: Bold;
+  color: #3F3F3F;
+  font-size: 28rpx;
+  height: 30rpx;
+  line-height: 30rpx;
+  padding-left: 70rpx;
+  box-sizing: border-box;
+  width: 100%;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.right_texture{
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 20rpx;
+  height: 24rpx;
+  line-height: 24rpx;
+  color: #8E8E8E;
+  vertical-align:middle;
+}
+.right_texture image{
+  line-height: 0rpx;
+  display: inline-block;
+  width: 20rpx;
+  height: 20rpx;
+  vertical-align:middle;
+}
+.right_texture .data{
+  color: #3B3B3B;
+}
+.right_size{
+
+  height: 19rpx;
+  line-height: 19rpx;
+}
+.right_size .data{
+  color: #3B3B3B;
+}
+.right_sum{
+
+  height: 16rpx;
+  line-height: 16rpx;
+}
+.right_money{
+  color: #FF4835;
+  text-align: left;
+  font-weight:bold;
+}
+.right_amount{
+  color: #3F3F3F;
+  float: right;
+  margin-right: 15rpx;
+}
+ .footer{
+  border-top: 1px solid #f7f8fa;
+  height:98rpx;
+  line-height: 98rpx;
+  position:fixed;
+  bottom:0;
+  left:0;
+  z-index: 11;
+  width:100%;
+  background-color:#ffffff;
+} 
+.select_all{
+  padding: 36rpx 0 36rpx 65rpx;
+  font-family: PingFang-SC-Medium;
+  font-weight: Medium;
+  height: 26rpx;
+  line-height: 26rpx;
+  color: #3B3B3B;
+  font-size: 28rpx;
+  float: left;
+}
+.allselect_img{
+  width: 35rpx;
+  height: 35rpx;
+  position: absolute;
+  top: 32rpx;
+  left: 17rpx;
+}
+.total{
+  float: right;
+  position: relative;
+  margin-right: 250rpx;
+  width: 380rpx;
+  text-align: right;
+  padding-right: 10rpx;
+  box-sizing: border-box;
+}
+.sum{
+  font-family: PingFang-SC-Medium;
+  font-weight: Medium;
+  color: #3B3B3B;
+  font-size: 24rpx;
+}
+.total_money{
+  text-align: right;
+  display: inline-block;
+  font-family: PingFang-SC-Bold;
+  font-weight: Bold;
+  color: #FF4835;
+  font-size: 28rpx;
+  margin-left: 10rpx;
+  width: 180rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.delete_money{
+  text-align: left;
+  display: inline-block;
+  font-family: PingFang-SC-Medium;
+  font-weight: Medium;
+  color: #8E8E8E;
+  font-size: 20rpx;
+  margin-left: 10rpx;
+  width:140rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.delete{
+  width: 68rpx;
+  height: 1rpx;
+  position: absolute;
+  background-color: #8E8E8E;
+  top: 53rpx;
+  right: 0;
+}
+.payment{
+  width: 250rpx;
+  float: right;
+  text-align: center;
+  color: #FFFEFE;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  font-family: PingFang-SC-Bold;
+  font-weight: Bold;
+  font-size: 30rpx;
+  letter-spacing: -5;
+  background: linear-gradient(to right,#F2CD0B,#F2AE0B)
+}
+.delete_money{
+  text-decoration: line-through;
+}
+.red_bg{
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  padding: 0rpx 10rpx;
+  height: 30rpx;
+  line-height: 30rpx;
+  background:#FFDBD7;
+  font-size: 22rpx;
+  color: #F6695B;
+  border-radius: 5rpx; 
+}
+.childGoods{
+  position: relative;
+  width: 100%;
+  padding-left: 116rpx;
+  border-top: 1rpx solid #F7F8FA; 
+}
+.childImg{
+  position: relative;
+  float: left;
+  width: 118rpx;
+  height: 118rpx;
+  padding: 30rpx 0px;
+  overflow: hidden;
+}
+.childImg image{
+  width: 118rpx;
+  height: 118rpx;
+  border-radius: 8rpx;
+  border:1px solid #f2f2f2;
+  display: block;
+  box-sizing: border-box;
+}
+.childGoods .discription{
+  height: 118rpx;
+  padding: 30rpx 0px;
+  float: left;
+  display: flex;
+  flex-direction:column;
+  width: 300rpx;
+  justify-content:space-between;
+  margin-left: 40rpx;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.childGoods .discription .title{
+  position: relative;
+  font-size: 22rpx;
+  height: 30rpx;
+  line-height: 30rpx;
+  width: 100%;
+  box-sizing: border-box;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.childGoods .discription .model{
+  font-size: 20rpx;
+  height: 30rpx;
+  line-height: 30rpx;
+  font-weight: 400;
+  width: 100%;
+  box-sizing: border-box;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  color: #3B3B3B;
+}
+.childGoods .discription .num{
+  float: right;
+  margin-right:15rpx;
+}
+.animateBox{
+  width: 100%;
+  position: fixed;
+  bottom: 0rpx;
+  left: 0px;
+  background: #ffffff;
+  z-index: 99;
+}
+.childImg text{
+  position: absolute;
+  bottom: 30rpx;
+  left: 0rpx;
+  background: rgba(0,0,0,0.5);
+  font-size: 18rpx;
+  color: #ffffff;
+  max-width: 100%;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  padding: 8rpx 5rpx;
+  box-sizing: border-box;
+  border-bottom-left-radius: 8rpx;
+}
+.animateBox .goodsInfo{
+  position: relative;
+  padding: 40rpx 30rpx;
+  width: 100%;
+  box-sizing: border-box;
+  border-bottom: 1rpx solid #F7F8FA;
+}
+.animateBox .infoText{
+  width: 100%;
+  height: 130rpx;
+  display: flex;
+  flex-direction:column;
+  justify-content:space-between;
+  padding-left: 250rpx;
+  box-sizing: border-box;
+}
+.animateBox .goodsInfo image{
+  position: absolute;
+  top: -60rpx;
+  left: 30rpx;
+  width: 230rpx;
+  height: 230rpx;
+  border-radius: 8rpx;
+  background: #ffffff;
+  border:1px solid #F2F2F2;
+}
+.infoTex text{
+  height: 30rpx;
+  line-height: 30rpx;
+  width: 100%;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.infoText .price{
+  color: #FF4835;
+  font-size: 30rpx;
+}
+.infoText .type{
+  color: #3F3F3F;
+  font-size: 26rpx;
+}
+.infoText .model{
+  color: #3F3F3F;
+  font-size: 22rpx;
+}
+.changeGoodsList{
+  position: relative;
+  width: 100%;
+  min-height: 400rpx;
+  padding: 0rpx 30rpx;
+  padding-bottom: 30rpx;
+  box-sizing: border-box;
+}
+.changeGoodsList .left{
+  width: 100rpx;
+  height: 100%;
+  padding-top: 30rpx;
+  font-size: 30rpx;
+  color: #3F3F3F;
+  text-align: right;
+  box-sizing: border-box;
+}
+.changeGoodsList .right{
+  position: absolute;
+  top: 0rpx;
+  left: 0px;
+  width: 100%;
+  padding-left: 100rpx;
+  height: 100%;
+  box-sizing: border-box;
+}
+.changeGoodsList .right .item{
+  float: left;
+  padding: 10rpx 24rpx;
+  background: #F7F8FA;
+  color: #3F3F3F;
+  font-size: 24rpx;
+  margin-left: 20rpx;
+  margin-top: 30rpx;
+  border-radius: 8rpx;
+}
+.animateBox .submit{
+  width: 100%;
+  height: 100rpx;
+  line-height: 100rpx;
+  color: #ffffff;
+  text-align: center;
+  font-size: 30rpx;
+  background: linear-gradient(to right,#F2CD0B,#F2AE0B)
+}
+.changeGoodsList .right .item.select{
+  background: #FCF0B6;
+  color: #E5AD16;
+}
+.childPosition{
+  position: absolute;
+  top: 80rpx;
+  left: 35rpx;
+  font-size: 20rpx;
+  color: #3B3B3B;
+}
+.childGoods icon{
+  position:absolute;
+  width: 6rpx;
+  height: 6rpx;
+  border-radius: 50%;
+  background: #F2CD0B;
+  top: 93rpx;
+  left: 20rpx;
+}
+.imgBox{
+  position: absolute;
+  top: 0rpx;
+  left: 0rpx;
+  width: 74rpx;
+  height: 100%;
+}

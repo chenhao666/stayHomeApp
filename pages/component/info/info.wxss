@@ -1,0 +1,145 @@
+/* pages/component/info/info.wxss */
+.programme_info{
+  background: #f7f8fa;
+  padding-bottom:100rpx; 
+}
+.programme_info .item{
+  margin-top: 20rpx;
+  padding: 0rpx 30rpx;
+  box-sizing: border-box;
+  background: #ffffff;
+}
+.programme_info .item image{
+  display: block;
+  margin: 0 auto;
+  width: 100%;
+  height: 400rpx;
+}
+.programme_info .item:first-child{
+  margin-top: 0rpx;
+  padding:0rpx;
+}
+.base_title{
+  width: 100%;
+  height: 114rpx;
+  line-height: 114rpx;
+  font-size: 34rpx;
+  font-weight: bold;
+  border-bottom: 1rpx solid #F7F8FA;
+}
+.base_title .price{
+  float: right;
+  color: #FF4835;
+  font-size: 30rpx;
+}
+.programme_info .content{
+  padding: 40rpx 0rpx;
+  width: 100%;
+  word-break: break-all;
+  white-space: normal;
+  font-size: 24rpx;
+  line-height: 36rpx;
+  color: #606060;
+  text-indent: 48rpx;
+}
+.item_title{
+  width: 100%;
+  height: 70rpx;
+  line-height: 70rpx;
+  font-size: 30rpx;
+  font-weight: bold;
+}
+.circle{
+  width: 8rpx;
+  height: 8rpx;
+  float: left;
+  margin-right: 20rpx;
+  border-radius: 50%;
+  background: #F2CD0B;
+  margin-top: 41rpx;
+}
+.programme_info .item .title{
+  height: 90rpx;
+  line-height: 90rpx;
+  font-size: 30rpx;
+  font-weight: bold;
+  border-bottom: 1rpx solid  #F7F8FA;
+}
+.threePic{
+  position: relative;
+}
+.threePic view{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 200rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  text-align: center;
+  border: 2rpx solid #ffffff;
+  transform: translate(-50%,-50%);
+  border-radius: 40rpx;
+  color: #ffffff;
+  font-size: 30rpx;
+  background: rgba(0, 0, 0, 0.5);
+}
+.threePic view text:after{
+  position: absolute;
+  top: 30rpx;
+  right: 50rpx;
+  content:'';
+  font-size: 0;  
+  line-height: 0;  
+  border-width: 12rpx;  
+  border-color: #ffffff;  
+  border-right-width: 0;  
+  border-style: dashed;  
+  border-left-style: solid;  
+  border-top-color: transparent;  
+  border-bottom-color: transparent;
+}
+.programme_info .item .share{
+  position: absolute;
+  top: 42rpx;
+  right: 26rpx;
+  width: 50rpx;
+  height: 50rpx;
+  background: none;
+  padding: 0rpx !important;
+}
+.programme_info .item .share image{
+  width: 50rpx;
+  height: 50rpx;
+}
+.item_box{
+  border-bottom: 1rpx solid #F7F8FA;
+}
+.article{
+  margin-top: 20rpx;
+  padding: 20rpx 30rpx;
+  background: #ffffff;
+}
+.article .left{
+  float: left;
+  width: 79rpx;
+  height: 56rpx;
+}
+
+.article text{
+  float: left;
+  height: 56rpx;
+  line-height: 56rpx;
+  margin-left: 10rpx;
+  font-size: 28rpx;
+  font-weight: bold;
+  color: #3F3F3F;
+}
+.article .right{
+  float: right;
+  width: 24rpx;
+  height: 24rpx;
+  margin-top: 16rpx;
+}
+.article .right::after{
+  clear: both;
+}

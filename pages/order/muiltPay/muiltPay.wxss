@@ -1,0 +1,72 @@
+/* pages/order/muiltPay/muiltPay.wxss */
+page{
+  background: #F7F8FA;
+}
+.payInfo{
+  width: 100%;
+  margin-top: 20rpx;
+  padding: 25rpx 50rpx;
+  box-sizing: border-box;
+  background: #ffffff;
+}
+.payInfo text{
+  width: 100%;
+  height: 30rpx;
+  line-height: 30rpx;
+  color: #3F3F3F;
+  font-size: 24rpx;
+}
+.section{
+  position: relative;
+  width: 100%;
+  margin-top: 20rpx;
+  font-size: 28rpx;
+  font-weight:bold;
+  color: #3F3F3F;
+}
+.section input{
+  width: 100%;
+  padding-left:50rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  box-sizing: border-box; 
+  border-bottom: 1px solid #F3F3F3;
+}
+.mark{
+  position: absolute;
+  top: 11rpx;
+  left: 10rpx;
+  font-size: 28rpx;
+}
+.payItem{
+  width: 100%;
+  background: #ffffff;
+  margin-top: 20rpx;
+}
+.payItem .item{
+  height: 90rpx;
+  line-height: 90rpx;
+  padding: 0rpx 28rpx 0rpx 48rpx;
+  font-size: 26rpx;
+  border-bottom: 1rpx solid #F3F3F3;
+}
+.payItem .item .left{
+  float: left;
+  color: #8E8E8E;
+}
+.payItem .item .right{
+  float: right;
+  color: #3F3F3F;
+}
+.goPay{
+  position: fixed;
+  bottom: 0rpx;
+  left: 0rpx;
+  width:100%;
+  height:100rpx;
+  line-height: 100rpx;
+  text-align: center;
+  color: #ffffff;
+  font-size: 30rpx;
+  background:linear-gradient(120deg,rgba(242,205,11,1),rgba(242,174,11,1));
+}

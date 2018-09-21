@@ -1,0 +1,113 @@
+<view class='container'> 
+  <scroll-view class='list' scroll-y='true'>
+  <!--左侧的导航栏  -->
+    <view class='list_left'>
+      <view class='list_text' wx:for='{{ productList }}' wx:key='index' data-id='{{ index }}' bindtap='tabChoose'>
+        <text class="{{isChecked == index?'text_active':'list_text'}}" data-id='{{ index }}'>{{ item.packageName }}
+        </text>
+        <text class="{{isChecked == index?'icon_active':''}}" data-id='{{ index }}'></text>
+      </view>
+    </view>
+    <!--右侧商品展示  -->
+    <view class='list_right'>
+    <!--从这里开始循环  -->
+      <view class='wapper' wx:for='{{ productList[isChecked].roomList }}' wx:key='index' wx:for-index="aindex">
+        <view class='first_floor' wx:if="{{ item.typeName }}">
+          <text class='first_icon'></text>
+          <text class='first_text'>{{item.typeName}}</text>
+        </view>
+        <view class='second_floor' wx:if="{{ discount==10 ? false : true }}">
+          <text class='activity'>活动</text>
+          <text class='discount'>{{ discount }}折</text>
+        </view>
+        <!--产品信息  -->
+        <view class='third_floor'>
+          <view class='content' wx:for='{{ item.goodsList }}' wx:key='index' wx:for-index="bindex" wx:for-item='listItem' style="border:{{ bindex==0 ? 'none' :'1rpx solid #F7F8FA' }}">
+            <view class='content_left'>
+                <view class='imgBox' bindtap='switchSelect' src="{{(listItem[0].unitPrice && listItem[0].isCheck) ?'/img/check_select.png':'/img/check_btn.png'}}" data-aindex='{{aindex}}' data-bindex='{{bindex}}' data-price='{{listItem[0].unitPrice}}'>
+                  <image class='select_img' src="{{(listItem[0].unitPrice && listItem[0].isCheck) ?'/img/check_select.png':'/img/check_btn.png'}}" data-aindex='{{aindex}}' data-bindex='{{bindex}}' data-price='{{listItem[0].unitPrice}}'></image>       
+                </view>
+              <view class='product_img' bindtap='showDetail' data-data="{{item.goodsList}}" id="{{bindex}}">
+                <image mode="aspectFit" src='{{ listItem[0].showImg }}' data-data="{{item.goodsList}}" id="{{bindex}}"></image>   
+                <!--<text class='product_title' wx:if='{{ listItem[0].brandName }}'>{{  listItem[0].brandName }}</text>-->
+              </view>
+            </view>
+            <!--产品详细数据部分  -->
+            <view class='content_right'  id="{{bindex}}" bindtap='changeGoods' data-list="{{ listItem }}" data-index1="{{ aindex }}"  data-index2="{{ bindex }}">
+              <view class='right_title' style='padding-left:{{ listItem[0].species=="组合" || listItem[0].species=="商品" ? 70 : 0 }}rpx;' data-list="{{ listItem }}" data-index1="{{ aindex }}"  data-index2="{{ bindex }}">
+                <view class='red_bg' wx:if="{{ listItem[0].species=='组合' }}">组合</view>{{ listItem[0].goodsName }}</view>
+              <view class='right_texture' wx:if="{{ listItem.length>1 }}" data-list="{{ listItem }}" data-index1="{{ aindex }}"  data-index2="{{ bindex }}">{{ listItem[0].classType ? listItem[0].classType : "A款" }}<image src='/img/down.png' data-list="{{ listItem }}" data-index1="{{ aindex }}"  data-index2="{{ bindex }}" data-index3="{{ childIndex }}"></image>
+              </view>
+              <view class='right_size' data-list="{{ listItem }}" data-index1="{{ aindex }}"  data-index2="{{ bindex }}">
+                <text class='data' data-list="{{ listItem }}" data-index1="{{ aindex }}"  data-index2="{{ bindex }}">{{listItem[0].specifications}}</text>
+              </view>
+              <view class='right_sum' data-list="{{ listItem }}" data-index1="{{ aindex }}"  data-index2="{{ bindex }}">
+                <text class='right_money' data-list="{{ listItem }}" data-index1="{{ aindex }}"  data-index2="{{ bindex }}">{{ listItem[0].unitPrice ?'￥' + listItem[0].unitPrice : '暂无价格信息' }}</text>
+                <text class='right_amount' data-list="{{ listItem }}" data-index1="{{ aindex }}"  data-index2="{{ bindex }}">x{{listItem[0].goodsNum}}</text>
+                <view class='clear'></view>
+              </view>
+            </view>
+            <view class='clear'></view>
+            <!--子商品-->
+            <view class='childGoods' wx:for="{{ listItem[0].childList }}" wx:key='index' wx:for-index="childIndex" wx:for-item='childlListItem'>
+              <icon wx:if="{{ childlListItem[0].showType }}"></icon>
+              <view class='childPosition' wx:if="{{ childlListItem[0].showType }}">
+                {{ childlListItem[0].typeName }}
+              </view>  
+              <view class='childImg'>
+                <image mode="aspectFit" src='{{ childlListItem[0].showImg  }}'  bindtap='showDetail' data-data="{{ listItem[0].childList }}" id="{{childIndex}}"></image>
+                <!--<text class='brandName'>{{ childlListItem[0].brandName }}</text>-->
+              </view>
+              <view class='discription' bindtap='changeGoods' data-list="{{ childlListItem }}" data-index1="{{ aindex }}"  data-index2="{{ bindex }}" data-index3="{{ childIndex }}">
+                <view class='title' data-list="{{ childlListItem }}" data-index1="{{ aindex }}"  data-index2="{{ bindex }}" data-index3="{{ childIndex }}" style='padding-left:{{ listItem[0].species=="组合" || listItem[0].species=="商品" ? 80 : 0 }}rpx;'>
+                  <view class='red_bg' data-list="{{ childlListItem }}" data-index1="{{ aindex }}"  data-index2="{{ bindex }}" data-index3="{{ childIndex }}">商品{{ childIndex+1 }}</view>
+                  {{ childlListItem[0].goodsName }}
+                </view>
+                <view class='right_texture' data-index1="{{ aindex }}"  data-index2="{{ bindex }}"  data-index3="{{ childIndex }}" data-list="{{ childlListItem }}"  wx:if="{{ childlListItem.length>1 }}">{{ childlListItem[0].classType ? childlListItem[0].classType : "A款" }} <image src='/img/down.png' data-list="{{ childlListItem }}" data-index1="{{ aindex }}"  data-index2="{{ bindex }}" data-index3="{{ childIndex }}"></image>
+                </view>
+                <view class='model' data-index1="{{ aindex }}"  data-index2="{{ bindex }}"  data-index3="{{ childIndex }}" data-list="{{ childlListItem }}">
+                  {{ childlListItem[0].specifications }}
+                  <view class='num' data-index1="{{ aindex }}"  data-index2="{{ bindex }}"  data-index3="{{ childIndex }}" data-list="{{ childlListItem }}">x{{ childlListItem[0].goodsNum }}</view>
+                </view>
+              </view>
+              <view class='clear'></view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </scroll-view>
+  <view class='footer'>
+    <image class='allselect_img' bindtap='AllSelect' src="{{isAllSelect?'/img/check_select.png':'/img/check_btn.png'}}"></image> 
+    <text class='select_all' bindtap='AllSelect'>全选</text>
+    <text class='total'>
+      <text class='total_money'>￥{{ discountMoney }}</text>
+      <text class='delete_money' wx:if="{{ discountMoney==totalMoney ? false : true }}">￥{{ totalMoney }}</text>
+    </text>
+    <text class='payment' bindtap='goOrder'>结算({{allAmount}})</text>
+  </view>
+
+  <!--遮罩层-->
+  <view class='mask' bindtap='closeMask' hidden="{{ maskHidden }}"></view>
+  <!--弹出层-->
+  <view class='animateBox' animation="{{animationData}}" hidden="{{ maskHidden }}">
+    <view class='goodsInfo'>
+      <image mode="aspectFit" src='{{ changeDataList[selectType].showImg }}'></image>
+      <view class='infoText'>
+        <text class='price' hidden="{{ changeDataList[selectType].groupId || changeDataList[selectType].groupId==0 }}">￥{{ changeDataList[selectType].unitPrice }}</text>
+        <text class='type'>已选：{{ changeDataList[selectType].classType }}</text>
+        <text class='model'>规格：{{ changeDataList[selectType].specifications }}</text>
+      </view>
+    </view>
+
+    <view class='changeGoodsList'>
+      <view class='left'>款式：</view>
+      <view class='right'>
+        <view class='item {{ selectType==index ? "select" : "" }}' wx:for="{{ changeDataList }}" wx:key="index" bindtap='selectClassType' data-index="{{ index }}">{{ item.classType }}</view>
+        <view class='clear'></view>
+      </view> 
+    </view>
+
+    <view class='submit' bindtap='saveChange'>确定</view>
+  </view>
+</view>

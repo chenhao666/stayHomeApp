@@ -1,0 +1,23 @@
+<view class="container">
+  <view class='list'>
+    <view class='item'>
+      <text class='left'>联系我们</text>
+      <image src='/img/icon_more.png'></image>
+      <view style='clear:both'></view>
+    </view>
+
+    <view class='item'>
+      <text class='left'>当前版本</text>
+      <text class='right'>v1.0</text>
+      <view style='clear:both'></view>
+    </view>
+
+    <view class='item' bindtap='clearAllStorage' style='cursor: pointer;'>
+      <text class='left'>清除缓存</text>
+      <text class='right'>{{ storageInfoSize }}</text>
+      <view style='clear:both'></view>
+    </view>
+  </view>
+
+  <button class='loginOut' bindtap='loginOut'>退出登录</button>
+</view>

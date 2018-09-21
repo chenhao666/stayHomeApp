@@ -1,0 +1,12 @@
+<!--方案列表-->
+  <view class='programmeList' bind:longpress="touchMove">
+    <view class='item'  wx:for="{{ programmeList }}" wx:key="{{ index }}">
+      <navigator url="/pages/programme/floor/floor?styleId={{ item.styleId }}&brandId={{ item.brandId }}">
+        <image src='{{ item.coverPic }}'></image>
+      </navigator>
+      <view class='describe'>
+        <text class='title'>{{ item.brandName }}</text>
+        <text class='content'>{{ item.details }}</text>
+      </view>
+    </view>
+  </view>

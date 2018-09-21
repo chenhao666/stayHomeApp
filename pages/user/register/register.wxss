@@ -1,0 +1,48 @@
+/* pages/user/register/register.wxss */
+page{
+  background: #f7f8fa; 
+}
+.button{
+  width: 670rpx;
+  display: block;
+  margin: 0 auto;
+  margin-top: 30rpx;
+  padding: 0rpx !important;
+  color: #ffffff !important;
+  border-radius: 10rpx !important;
+  background: linear-gradient(to right,#F2CD0B,#F2AE0B)
+}
+.form{
+  width: 100%;
+  background: #ffffff;
+  margin-top:20rpx; 
+}
+input{
+  padding-left: 50rpx;
+  padding-right: 250rpx;
+  width: 100%;
+  height: 90rpx;
+  line-height: 90rpx;
+  font-size: 28rpx;
+  color: #2D2D2D;
+  box-sizing: border-box;
+  border-bottom: 1px solid #F3F3F3;
+}
+.box{
+  width: 100%;
+  position: relative;
+}
+.sendCode{
+  position: absolute;
+  top: 20rpx;
+  right: 50rpx;
+  width: 200rpx;
+  height: 48rpx;
+  text-align: center;
+  line-height: 48rpx;
+  font-size: 22rpx;
+  color: #F2CD0B;
+  background: none;
+  border: 2rpx solid  #F2CD0B;
+  z-index: 99;
+}

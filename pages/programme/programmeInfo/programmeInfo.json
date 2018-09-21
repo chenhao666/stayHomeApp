@@ -1,0 +1,8 @@
+{
+  "navigationBarTitleText": "方案详情",
+  "usingComponents": {
+    "component-programme-list": "/pages/component/info/info"
+  },
+  "enablePullDownRefresh": true,
+  "backgroundTextStyle": "dark"
+}

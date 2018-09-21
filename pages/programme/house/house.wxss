@@ -1,0 +1,118 @@
+/* pages/programme/house/house.wxss */
+page{
+  background: #f7f8fa;
+  padding-bottom:40rpx;
+  box-sizing: border-box;
+  height: 100%; 
+}
+.bodyOverflow{
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+.header{
+  width: 100%;
+  height: 80rpx;
+  border-top: 1rpx solid #F7F8FA;
+  border-bottom: 1rpx solid #F7F8FA;
+  line-height: 80rpx;
+  background: #ffffff;
+  position: fixed;
+  top: 0rpx;
+  left: 0rpx;
+  z-index: 99;
+}
+.header .item{
+  width: 50%;
+  float: left;
+  text-align: center;
+  font-size:26rpx;
+  color: #8E8E8E;
+}
+.header .item text{
+  float: left;
+}
+.header .item .box{
+  display: inline-block;
+}
+.header .item image{
+  float: left;
+  width: 20rpx;
+  height: 20rpx;
+  margin-left: 20rpx;
+  margin-top: 30rpx;
+}
+.header .item.active{
+  /*color: #F2CD0B;*/
+}
+
+.houseList{
+  width: 100%;
+  box-sizing: border-box;
+  margin-top: 80rpx;
+}
+.houseList .item{
+  width: 100%;
+  margin-top: 30rpx;
+  overflow: hidden;
+  /*border-radius:20rpx;*/
+  background: #ffffff; 
+ /* box-shadow:3px 2px 3px 3px #9AA1AF;*/
+}
+.houseList .item image{
+  display: block;
+  width: 100%;
+  height: 516rpx;
+}
+.discribe{
+    padding:30rpx 30rpx;
+    box-sizing: border-box;
+}
+.discribe .title{
+  font-size: 30rpx;
+  color: #3F3F3F;
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-weight: bold;
+  padding-bottom: 20rpx;
+  border-bottom: 1rpx solid #F7F8FA;
+}
+.discribe .info{
+  font-size: 24rpx;
+  margin-top: 24rpx;
+  color: #8E8E8E;
+}
+.discribe .info .home{
+  float: left
+}
+.discribe .info .area{
+  float: right
+}
+.animateBox{
+  width: 100%;
+  position: fixed;
+  top: 80rpx;
+  left: 0px;
+  background: #ffffff;
+  z-index: 99;
+}
+.animateBox .item{
+  padding: 0rpx 50rpx;
+  width: 100%;
+  height: 80rpx;
+  line-height: 80rpx;
+  border-top: 1rpx solid #F7F8FA;
+  box-sizing: border-box;
+  color: #3F3F3F;
+  font-size: 26rpx;
+  position: relative;
+}
+.animateBox .item image{
+  position:absolute;
+  width:30rpx;
+  height: 30rpx;
+  top: 25rpx;
+  right: 50rpx;
+}

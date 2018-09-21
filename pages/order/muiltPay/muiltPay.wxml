@@ -1,0 +1,27 @@
+<!--pages/order/muiltPay/muiltPay.wxml-->
+<view class='container'>
+  <view class='payInfo'>
+    <text>本次支付金额</text>
+    <view class="section">
+      <view class='mark'>￥</view>
+      <input placeholder="请输入支付金额" bindinput="bindKeyInput" auto-focus/>
+    </view>
+    <text style='margin-top:20rpx;font-size:22rpx;'>总计支付 ￥{{ allMoney }} 即可下单，还需支付 <text style='color:#FF4835'>￥{{ needPay }}</text></text>
+  </view>
+
+  <view class='payItem'>
+    <view class='item'>
+      <view class='left'>合计</view>
+      <view class='right'>￥{{ allMoney }}</view>
+      <view class='clear'></view>
+    </view>
+
+    <view class='item'>
+      <view class='left'>已支付</view>
+      <view class='right'>￥{{ alreadyAmount }}</view>
+      <view class='clear'></view>
+    </view>
+  </view>
+</view>
+
+<view class='goPay' bindtap='goPay'>去付款</view>

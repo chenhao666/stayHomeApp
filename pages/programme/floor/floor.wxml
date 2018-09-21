@@ -1,0 +1,22 @@
+<!--楼盘选择-->
+<view class='container'>
+  <view class='floorList'>
+    <view class='empty' wx:if="{{ floorList.length==0 }}">
+      <image src='/img/houseEmpty.png'></image>
+      <text>暂无楼盘信息</text>
+    </view>
+    <!--列表-->
+    <navigator wx:for="{{ floorList }}" wx:key="{{ index }}" url="/pages/programme/house/house?styleId={{ item.styleId }}&brandId={{ item.brandId }}&houseId={{ item.houseId }}">
+      <view class='item'>
+        <image src='{{ item.houseCoverPic }}'></image>
+        <view class='discribe'>
+          <view class='title'>{{ item.houseName }}</view>
+          <view class='address'>
+            地址：<text style='color:#9AA1AF'>{{ item.address }}</text>
+          </view>
+        </view>
+      </view>
+    </navigator>
+    <!--列表结束-->
+  </view>
+</view>
