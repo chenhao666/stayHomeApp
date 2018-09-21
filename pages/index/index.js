@@ -33,6 +33,12 @@ Page({
     if (this.data.imgUrls.length == 0) {
       if (wx.getStorageSync('indexData')) {
         this.setData(wx.getStorageSync('indexData'));
+        this.setData({
+          select: 0,
+          fixedTab: false,//浮动tab
+          tabTop: 0,//tab距离上面距离
+          changeHeight: 0,//swipper高度
+        })
       }
     }
     //获取tab距离
@@ -110,6 +116,7 @@ Page({
     setTimeout(function () {
       wx.stopPullDownRefresh();
       that.onReady();
+      that.onShow();
     }, 1000)
   },
 
