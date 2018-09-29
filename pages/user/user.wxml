@@ -27,11 +27,11 @@
   </view>
 
   <!--<navigator url="/pages/user/setting/setting">
-  <view class='user_item'>
-    <view class='iconfont icon-shezhi' style='background:#198AC7;'></view>
-    <text>设置</text>
-    <image src='/img/icon_more.png' class='more'></image>
-    <view class='clear:both'></view>
-  </view>
+    <view class='user_item'>
+      <view class='iconfont icon-shezhi' style='background:#198AC7;'></view>
+      <text>设置</text>
+      <image src='/img/icon_more.png' class='more'></image>
+      <view class='clear:both'></view>
+    </view>
   </navigator>-->
 </view>

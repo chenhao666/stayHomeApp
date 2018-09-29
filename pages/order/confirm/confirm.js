@@ -185,7 +185,7 @@ Page({
   selectAddress:function(){
     let that = this;
     let total =JSON.stringify(that.data.totalData)
-    wx.redirectTo({
+    wx.navigateTo({
       url: '/pages/order/selectAddress/selectAddress?optionsData=' + total
     })
   },
@@ -280,7 +280,6 @@ Page({
     var str2 = str1.replace(/\"goodsNum\"/g, '"number"')
     var str3 = JSON.parse(str2)
     for (let i = 0; i < str3.length; i++) {
-
       ids.push(str3[i][0].roomId);
       data.packageList.push({
         goodsList: str3[i],
@@ -291,6 +290,7 @@ Page({
     //console.log(data)
     for (var i = 0; i < data.packageList.length;i++){
       for (var j = 0; j < data.packageList[i].goodsList.length;j++){
+        data.packageList[i].packageId = data.packageList[i].goodsList[0].packageId;
         if (data.packageList[i].goodsList[j].childList) {
           for (var x = 0; x < data.packageList[i].goodsList[j].childList.length; x++) {
             if (!data.packageList[i].goodsList[j].groupList){

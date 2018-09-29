@@ -26,8 +26,8 @@ Page({
     //获取楼盘面积列表
     var that = this;
     var data = {
-      /*styleId: options.styleId,
-      brandId: options.brandId,*/
+      styleId: options.styleId,
+      /*brandId: options.brandId,*/
       houseId: options.houseId,
       conditions: 'houseArea'
     }
@@ -43,8 +43,8 @@ Page({
     //获取居室列表
     var that = this;
     var data = {
-      /*styleId: options.styleId,
-      brandId: options.brandId, */
+      styleId: options.styleId,
+      /*brandId: options.brandId,*/ 
       houseId: options.houseId,
       conditions: 'houseTypeName'
     }
@@ -60,11 +60,12 @@ Page({
     //获取户型列表
     var that = this;
     var data = {
-      /*styleId: options.styleId,
-      brandId: options.brandId, */
+      styleId: options.styleId,
+      /*brandId: options.brandId,*/ 
       houseId: options.houseId,
       houseArea: this.data.area,
-      houseTypeName: this.data.home
+      houseTypeName: this.data.home,
+      conditions: 'houseModel'
     }
     if (data.houseArea == "全部") {
       data.houseArea = "";
@@ -161,12 +162,12 @@ Page({
     }
     var that = this;
     var data = {
-      /*styleId: this.data.nowInfo.styleId,
-      brandId: this.data.nowInfo.brandId, */
+      styleId: this.data.nowInfo.styleId,
+      /*brandId: this.data.nowInfo.brandId,*/ 
       houseId: this.data.nowInfo.houseId,
       houseArea: this.data.area,
       houseTypeName: this.data.home,
-      //conditions: 'houseTypeName'
+      conditions: 'houseModel'
     }
     if (data.houseArea=="全部"){
       data.houseArea="";
@@ -175,7 +176,7 @@ Page({
       data.houseTypeName = "";
     }
     getApp().ajax("queryDesignProgram", data, 'POST', function (res) {
-      console.log(res.data)
+      //console.log(res.data)
       that.setData({
         houseList: res.data.designInfos
       })

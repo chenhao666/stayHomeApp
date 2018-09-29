@@ -150,7 +150,13 @@ Page({
                       data: JSON.stringify(userInfo)
                     })
                     WebIM.conn.open(options,function(){
-                      that.onShow();
+                      if(wx.getStorageSync('goUrl')){
+                        wx.navigateTo({
+                          url: wx.getStorageSync('goUrl')
+                        })
+                      }else{
+                        that.onShow();
+                      }
                     });
                   }
                 })

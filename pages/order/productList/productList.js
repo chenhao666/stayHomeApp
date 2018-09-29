@@ -12,6 +12,7 @@ Page({
     productList: [],
     brandName: '',
     styleName: '',
+    styleId:'',
     isChecked: 0,
     programmeId:'',
     isAllSelect:false,
@@ -75,10 +76,10 @@ Page({
               var img = list[i].roomList[j].goodsList[x][y].goodsImages;
               if (img.indexOf(',') > -1) {
                 var arr = img.split(',');
-                list[i].roomList[j].goodsList[x][y].showImg = arr[0]
+                list[i].roomList[j].goodsList[x][y].showImg = arr[0]+'-thum'
                 list[i].roomList[j].goodsList[x][y].goodsImagesArr = arr;
               }else{
-                list[i].roomList[j].goodsList[x][y].showImg = img;
+                list[i].roomList[j].goodsList[x][y].showImg = img + '-thum';
                 list[i].roomList[j].goodsList[x][y].goodsImagesArr = [list[i].roomList[j].goodsList[x][y].goodsImages];
               }
               if (list[i].roomList[j].goodsList[x][y].childList) {
@@ -87,10 +88,10 @@ Page({
                     var img = list[i].roomList[j].goodsList[x][y].childList[z][v].goodsImages;
                     if (img.indexOf(',') > -1) {
                       var arr = img.split(',');
-                      list[i].roomList[j].goodsList[x][y].childList[z][v].showImg = arr[0];
+                      list[i].roomList[j].goodsList[x][y].childList[z][v].showImg = arr[0] + '-thum';
                       list[i].roomList[j].goodsList[x][y].childList[z][v].goodsImagesArr = arr;
                     } else {
-                      list[i].roomList[j].goodsList[x][y].childList[z][v].showImg = img;
+                      list[i].roomList[j].goodsList[x][y].childList[z][v].showImg = img + '-thum';
                       list[i].roomList[j].goodsList[x][y].childList[z][v].goodsImagesArr = [list[i].roomList[j].goodsList[x][y].childList[z][v].goodsImages];
                     }
                   }
@@ -101,13 +102,21 @@ Page({
         }
       }
       //console.log(list[0]);
+      if(list.length==0){
+        wx.showToast({
+          title: '暂无商品！',
+          icon: 'none',
+          duration: 2000
+        })
+        return;
+      }
       that.setData({
         productList: list,
         brandName: res.data.data.brandName,
         styleName: res.data.data.styleName,
+        styleId: res.data.data.styleId,
         programmeId: programmeId,
-        discount: list[0].discount || 10,
-        isAllSelect: list[0].isCheck ? true : false
+        discount: list[0].discount || 10
       })
       that.computer();
     })
@@ -174,8 +183,7 @@ Page({
     //console.log(list)
     this.setData({
       discount: list.discount || 10,
-      isChecked: index,
-      isAllSelect: list.isCheck ? true : false
+      isChecked: index
     })
   },
   // 勾选事件处理函数
@@ -216,27 +224,23 @@ Page({
   AllSelect: function (e) {
     // 初始化 总价格和优惠价格
     var index = this.data.isChecked;
-    if (this.data.productList[index].mandatory) {
-      wx.showToast({
-        title: '该商品为必选商品,不可取消',
-        icon: 'none',
-        duration: 2000
-      })
-      return;
-    }
-    var list = this.data.productList[index].roomList;
-    //console.log(list)
-    for(var i=0;i<list.length;i++){
-      for (var j = 0; j < list[i].goodsList.length;j++){
-        if (!this.data.isAllSelect) {
-          list[i].goodsList[j][0].isCheck = true;
-        } else {
-          list[i].goodsList[j][0].isCheck= false;
+    var list = this.data.productList;
+    for(var x=0;x<list.length;x++){
+      if (!list[x].mandatory){
+        for (var i = 0; i < list[x].roomList.length; i++) {
+          for (var j = 0; j < list[x].roomList[i].goodsList.length; j++) {
+            if (!this.data.isAllSelect) {
+              list[x].roomList[i].goodsList[j][0].isCheck = true;
+            } else {
+              list[x].roomList[i].goodsList[j][0].isCheck = false;
+            }
+          }
         }
       }
     }
+    //console.log(list)
     var productList = this.data.productList;
-    productList[index].goodsList = list;
+    productList = list;
     this.setData({
       productList: productList,
       isAllSelect: !this.data.isAllSelect
@@ -249,6 +253,9 @@ Page({
     var list = this.data.productList;
     var index = this.data.isChecked;//获取当前index
     var flag = [];//标记字段
+    //特殊处理
+    var specailTotal=0;
+    var specailFlag=false;
     //console.log(list)
     //默认全选
     for (var i = 0; i < list.length; i++) {
@@ -256,44 +263,49 @@ Page({
         var goodsInfoList = list[i].roomList[j].goodsList;
         for (var x = 0; x < goodsInfoList.length; x++) {
           if(goodsInfoList[x][0].isCheck){
-            if(i==index){
-              flag.push('1');
-            } 
+            flag.push('1');
             var discount = list[i].discount || 10;
+            if (this.data.styleId == 11 && list[i].packageId == 16){
+              specailFlag=true;
+              //总价
+              specailTotal += Math.round(parseFloat(goodsInfoList[x][0].unitPrice) * parseInt(goodsInfoList[x][0].goodsNum) * discount * 10);
+            }
             //总价
             totalMoney = (parseFloat(totalMoney) + parseFloat(goodsInfoList[x][0].unitPrice) * parseInt(goodsInfoList[x][0].goodsNum)).toFixed(2);
             //折扣价
-            discountMoney += Math.round(parseFloat(goodsInfoList[x][0].unitPrice) * parseInt(goodsInfoList[x][0].goodsNum) * discount*10);
+            discountMoney += Math.round(parseFloat(goodsInfoList[x][0].unitPrice) * parseInt(goodsInfoList[x][0].goodsNum) * discount * 10);
             //总数
             allAmount = parseInt(allAmount) + parseInt(goodsInfoList[x][0].goodsNum);
           }else{
-            if (i == index) {
-              flag.push('0');
-            }
+            flag.push('0');
           }
         }
       }
     }
-    this.setData({
-      totalMoney: totalMoney,
-      discountMoney: discountMoney/100,
-      allAmount: allAmount
-    })
-    //console.log(this.data)
-    //console.log(flag)
-    if (flag.indexOf('0')==-1){
-      list[index].isCheck=1;
+    if (flag.indexOf('0') == -1) {
       this.setData({
         isAllSelect: true,
-        productList:list
+        productList: list
       })
-    }else{
-      list[index].isCheck = 0;
+    } else {
       this.setData({
         isAllSelect: false,
         productList: list
       })
     }
+    if (specailFlag && this.data.isAllSelect==true){
+      this.setData({
+        discountMoney: (discountMoney-specailTotal)/100
+      })
+    }else{
+      this.setData({
+        discountMoney: discountMoney / 100
+      })
+    }
+    this.setData({
+      totalMoney: totalMoney,
+      allAmount: allAmount
+    })
   },
   //替换商品
   changeGoods:function(e){
@@ -388,39 +400,40 @@ Page({
   //跳转订单
   goOrder:function(e){
     var that=this;
-    getApp().checkToken(function(res){
-      if (res){
-        var productList = [];
-        var list = that.data.productList;
-        for (var i = 0; i < list.length; i++) {
-          for (var j = 0; j < list[i].roomList.length; j++) {
-            var goodsInfoList = list[i].roomList[j].goodsList;
-            for (var x = 0; x < goodsInfoList.length; x++) {
-              if (goodsInfoList[x][0].isCheck) {
-                productList.push(goodsInfoList[x][0]);
-              }
-            }
+    var productList = [];
+    var list = that.data.productList;
+    for (var i = 0; i < list.length; i++) {
+      for (var j = 0; j < list[i].roomList.length; j++) {
+        var goodsInfoList = list[i].roomList[j].goodsList;
+        for (var x = 0; x < goodsInfoList.length; x++) {
+          if (goodsInfoList[x][0].isCheck) {
+            productList.push(goodsInfoList[x][0]);
           }
         }
-        var info = {
-          productList: productList,
-          totalMoney: that.data.totalMoney,
-          discountMoney: that.data.discountMoney,
-          brandName: that.data.brandName,
-          styleName: that.data.styleName,
-          programmeId: that.data.programmeId
-        }
-        //console.log(that.data.programmeId)
-        if (parseFloat(that.data.totalMoney) == 0) {
-          wx.showToast({
-            title: '您还没有选择商品',
-            icon: 'none',
-            duration: 2000
-          })
-          return;
-        }
+      }
+    }
+    var info = {
+      productList: productList,
+      totalMoney: that.data.totalMoney,
+      discountMoney: that.data.discountMoney,
+      brandName: that.data.brandName,
+      styleName: that.data.styleName,
+      programmeId: that.data.programmeId
+    }
+    //console.log(that.data.programmeId)
+    if (parseFloat(that.data.totalMoney) == 0) {
+      wx.showToast({
+        title: '您还没有选择商品',
+        icon: 'none',
+        duration: 2000
+      })
+      return;
+    }
+    var url = '/pages/order/confirm/confirm?list=' + JSON.stringify(info)
+    getApp().checkToken(url,function(res){
+      if (res){
         wx.navigateTo({
-          url: '/pages/order/confirm/confirm?list=' + JSON.stringify(info)
+          url: url
         })
       }
     })

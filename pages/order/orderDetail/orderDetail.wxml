@@ -2,7 +2,13 @@
 <view class='container' wx:if="{{defaultAddress ==1}}">
   <view class='main'>
     <view class='orderStatus status0' wx:if='{{orderStatus === 0}}'>
-      <text>待付款</text>
+      <view class='status'>
+        <text>待付款</text>
+         <navigator url="/pages/programme/showThree/showThree?url=https://m.wojiali.cn/file/articleImg/index.html">
+          <image src='/img/ico.png'></image>
+        </navigator>
+        <view class='clear'></view>
+      </view>
       <view class='orderNum'>
         <view class='left'>订单编号:{{ orderNumber }}</view>
         <view class='right' bindtap='copyNum'>复制</view>
@@ -10,7 +16,13 @@
       </view>
     </view> 
     <view class='orderStatus status2' wx:if='{{orderStatus === 1}}'>
-      <text>已支付</text>
+      <view class='status'>
+        <text>已支付</text>
+        <navigator url="/pages/programme/showThree/showThree?url=https://m.wojiali.cn/file/articleImg/index.html">
+          <image src='/img/ico.png'></image>
+        </navigator>
+        <view class='clear'></view>
+      </view>
       <view class='orderNum'>
         <view class='left'>订单编号：{{ orderNumber }}</view>
         <view class='right' bindtap='copyNum'>复制</view>
@@ -19,16 +31,28 @@
 
       <view class='payTime'>支付时间：{{ payTime }}</view>
     </view> 
-      <view class='orderStatus status7' wx:if='{{orderStatus === 7}}'>
-      <text>已取消</text>
+    <view class='orderStatus status7' wx:if='{{orderStatus === 7}}'>
+      <view class='status'>
+        <text>已取消</text>
+        <navigator url="/pages/programme/showThree/showThree?url=https://m.wojiali.cn/file/articleImg/index.html">
+          <image src='/img/ico.png'></image>
+        </navigator>
+        <view class='clear'></view>
+      </view>
       <view class='orderNum'>
         <view class='left'>订单编号：{{ orderNumber }}</view>
         <view class='right' bindtap='copyNum'>复制</view>
         <view class='clear'></view>
       </view>
     </view> 
-      <view class='orderStatus status2' wx:if='{{orderStatus === 2}}'>
-      <text>已发货</text>
+    <view class='orderStatus status2' wx:if='{{orderStatus === 2}}'>
+      <view class='status'>
+        <text>已发货</text>
+        <navigator url="/pages/programme/showThree/showThree?url=https://m.wojiali.cn/file/articleImg/index.html">
+          <image src='/img/ico.png'></image>
+        </navigator>
+        <view class='clear'></view>
+      </view>
       <view class='orderNum'>
         <view class='left'>订单编号：{{ orderNumber }}</view>
         <view class='right' bindtap='copyNum'>复制</view>
@@ -37,8 +61,14 @@
 
       <view class='payTime'>支付时间：{{ payTime }}</view>
     </view> 
-      <view class='orderStatus status2' wx:if='{{orderStatus === 3}}'>
-      <text>已到货</text>
+    <view class='orderStatus status2' wx:if='{{orderStatus === 3}}'>
+      <view class='status'>
+        <text>已到货</text>
+        <navigator url="/pages/programme/showThree/showThree?url=https://m.wojiali.cn/file/articleImg/index.html">
+          <image src='/img/ico.png'></image>
+        </navigator>
+        <view class='clear'></view>
+      </view>
       <view class='orderNum'>
         <view class='left'>订单编号：{{ orderNumber }}</view>
         <view class='right' bindtap='copyNum'>复制</view>
@@ -48,7 +78,13 @@
       <view class='payTime'>支付时间：{{ payTime }}</view>
     </view> 
     <view class='orderStatus status2' wx:if='{{orderStatus === 8}}'>
-      <text>已完成</text>
+      <view class='status'>
+        <text>已完成</text>
+        <navigator url="/pages/programme/showThree/showThree?url=https://m.wojiali.cn/file/articleImg/index.html">
+          <image src='/img/ico.png'></image>
+        </navigator>
+        <view class='clear'></view>
+      </view>
       <view class='orderNum'>
         <view class='left'>订单编号：{{ orderNumber }}</view>
         <view class='right' bindtap='copyNum'>复制</view>
@@ -58,7 +94,13 @@
       <view class='payTime'>支付时间：{{ payTime }}</view>
     </view> 
     <view class='orderStatus status7' wx:if='{{orderStatus === 9}}'>
-      <text>已关闭</text>
+      <view class='status'>
+        <text>已关闭</text>
+        <navigator url="/pages/programme/showThree/showThree?url=https://m.wojiali.cn/file/articleImg/index.html">
+          <image src='/img/ico.png'></image>
+        </navigator>
+        <view class='clear'></view>
+      </view>
       <view class='orderNum'>
         <view class='left'>订单编号：{{ orderNumber }}</view>
         <view class='right' bindtap='copyNum'>复制</view>
@@ -81,7 +123,7 @@
     <view class='contain'>
         <view class='first_floor'>
           <text class='spec_now'>{{addressData.styleName}}</text>
-          <text class='spec_home'>{{addressData.brandName}}</text>
+          <!--<text class='spec_home'>{{addressData.brandName}}</text>-->
         </view> 
       <view wx:for="{{requireData}}" wx:key='index' class='mainContain'>
         <view class='second_floor'>

@@ -32,17 +32,19 @@ page{
   box-sizing: border-box;
 }
 .imgList{
-  height: 188rpx;
+  height: 184rpx;
   width: 100%;
   margin-left: 13rpx;
   overflow: hidden;
 }
 .img{
+  display: block;
   width: 184rpx;
   height: 184rpx;
   float: left;
   margin-left: 17rpx;
   text-align: center;
+  box-sizing: border-box;
 }
 .img image{
   border: 1rpx solid #F2F2F2;

@@ -1,6 +1,6 @@
 <view class="container">
   <view class='list'>
-    <view class='item'>
+    <view class='item'  bindtap='phoneCall' style='cursor: pointer;'>
       <text class='left'>联系我们</text>
       <image src='/img/icon_more.png'></image>
       <view style='clear:both'></view>

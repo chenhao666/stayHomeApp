@@ -12,13 +12,13 @@
   <!--头部结束-->
 
   <!--品牌-->
-  <view class='brandList'>
+  <!--<view class='brandList'>
     <view class='box' style="width:{{ brandArr.length*250 }}rpx;">
        <view wx:for="{{ brandArr }}" wx:key="{{ index }}" class='item {{ index==selectBrand?"active" :"" }} ' bindtap='selectBrand' data-index='{{ index }}'>
          <text>{{ item.brandName }}</text>
        </view>
     </view>
-  </view>
+  </view>-->
   <!--品牌结束-->
 
   <!--品牌切换-->

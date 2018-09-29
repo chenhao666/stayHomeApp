@@ -28,7 +28,7 @@
     <view class='contain'>
       <view class='first_floor'>
         <text class='spec_now'>{{requireData.styleName}}</text>
-        <text class='spec_home'>{{requireData.brandName}}</text>
+        <!--<text class='spec_home'>{{requireData.brandName}}</text>-->
       </view>
      
       <view class='third_floor'>
@@ -68,7 +68,7 @@
                  <!-- <text class='brandName'>{{ childlListItem[0].brandName }}</text>-->
                 </view>
                 <view class='discription'>
-                  <view class='title' style='padding-left:80rpx;'>
+                  <view class='title' style='padding-left:100rpx;'>
                     <view class='red_bg'>商品{{ childIndex+1 }}</view>
                     {{ childlListItem[0].goodsName }}
                   </view>

@@ -232,9 +232,35 @@ App({
       },
       success: function (res) {
         wx.hideLoading();
-        //console.log(res);
+        var pageArr = getCurrentPages();
+        var len = pageArr.length;
+        //console.log(pageArr);
+        if (len > 1){
+          var options = pageArr[len - 1].options;
+          var option="";
+          for (var x in options){
+            option += x + '=' + options[x];
+          }
+          if (option!=""){
+            option = '?' + option;
+          }
+          wx.setStorageSync('goUrl', '/' + pageArr[len - 1].route + option);
+        }
         if (res.data.retCode == 0) {
           callback(res);
+        } else if (res.data.retCode == -1002){
+          var msg = res.data.retMsg || '登录状态过期,请重新登录';
+          wx.showToast({
+            title: msg,
+            icon: 'none',
+            duration: 2000
+          })
+          wx.removeStorageSync('token');
+          setTimeout(function(){
+            wx.switchTab({
+              url: '/pages/user/user'
+            })
+          },1000)
         } else {
           //console.log(res);
           var msg = res.data.retMsg || '网络请求错误,请下拉重试';
@@ -279,7 +305,7 @@ App({
     return (new Date(timeDate)).Format("yyyy-MM-dd hh:mm");
   },
   //token判断
-  checkToken:function(callback){
+  checkToken:function(url,callback){
     if (wx.getStorageSync('token')){
       callback(true);
     }else{
@@ -288,6 +314,7 @@ App({
         icon: 'none',
         duration: 2000
       })
+      wx.setStorageSync('goUrl', url)
       setTimeout(function () {
         wx.switchTab({
           url: '/pages/user/user',

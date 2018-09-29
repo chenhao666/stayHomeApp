@@ -122,23 +122,25 @@ Page({
         for (var j = 0; j < list[i].orderDetails.length;j++){
           if (list[i].orderDetails[j].groupInfoList){
             for (var x = 0; x < list[i].orderDetails[j].groupInfoList.length;x++){
+              var imageUrl = list[i].orderDetails[j].groupInfoList[x].imageUrl;
               if (list[i].orderDetails[j].groupInfoList[x].imageUrl.indexOf(',') > -1) {
-                var imageUrl = list[i].orderDetails[j].groupInfoList[x].imageUrl;
                 var arr = imageUrl.split(',');
-                list[i].orderDetails[j].groupInfoList[x].imageUrl = arr[0];
+                list[i].orderDetails[j].groupInfoList[x].imageUrl = arr[0]+'-thum';
                 list[i].orderDetails[j].groupInfoList[x].imageUrlArr=arr;
               }else{
-                list[i].orderDetails[j].groupInfoList[x].imageUrlArr = [list[i].orderDetails[j].groupInfoList[x].imageUrl];
+                list[i].orderDetails[j].groupInfoList[x].imageUrl = imageUrl + '-thum';
+                list[i].orderDetails[j].groupInfoList[x].imageUrlArr = [imageUrl];
               }
             }
           }else{
+            var imageUrl = list[i].orderDetails[j].imageUrl;
             if (list[i].orderDetails[j].imageUrl.indexOf(',')>-1){
-              var imageUrl = list[i].orderDetails[j].imageUrl;
               var arr = imageUrl.split(',');
-              list[i].orderDetails[j].imageUrl = arr[0];
+              list[i].orderDetails[j].imageUrl = arr[0] + '-thum';
               list[i].orderDetails[j].imageUrlArr = arr;
             }else{
-              list[i].orderDetails[j].imageUrlArr = [list[i].orderDetails[j].imageUrl];
+              list[i].orderDetails[j].imageUrl = imageUrl + '-thum';
+              list[i].orderDetails[j].imageUrlArr = [imageUrl];
             }
           }
         }

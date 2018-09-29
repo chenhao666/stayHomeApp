@@ -25,6 +25,13 @@ page{
   bottom: 10rpx;
   box-sizing: border-box;
 }
+.list_text text{
+  height: 46rpx;
+  line-height: 46rpx;
+  width: 100%;
+  box-sizing: border-box;
+  display: block;
+}
 .list_text{
   font-family: PingFang-SC-Medium;
   color: #8E8E8E;
@@ -33,22 +40,16 @@ page{
   position: relative;
   font-weight:500;
 }
-.text_active{
+.text_active text{
   color: #F2CD0B;
+  border-left: 6rpx solid #F2CD0B;
 }
-.icon_active{
-  width: 6rpx;
-  height: 46rpx;
-  background-color: #F2CD0B;
-  position: absolute;
-  top: -5rpx;
-  left: 0;
-}
+
 .list_text:first-child{
-  padding-top: 28rpx;
+  padding-top: 18rpx;
 }
 .list_text:not(:first-child){
-  padding-top: 57rpx;
+  padding-top: 47rpx;
 }
 .list_right{
   float: left;

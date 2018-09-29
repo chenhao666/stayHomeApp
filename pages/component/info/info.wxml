@@ -4,7 +4,7 @@
    <!--列表-->
     <view class='item'>
       <view class='threePic'>
-        <image src='{{ programme.designInfo.coverPic }}'></image>
+        <image mode="aspectFill" src='{{ programme.designInfo.coverPic }}'></image>
          <navigator url="/pages/programme/showThree/showThree?url={{ programme.designInfo.threeDurl }}">
         <view><text>3D</text></view>
         </navigator>
@@ -18,9 +18,7 @@
           <view class='clear'></view>
         </view>
 
-        <view class='content'>
-          {{ programme.designInfo.details }}
-        </view>
+        <text class='content' space="ensp">{{ programme.designInfo.details }}</text>
       </view>
     </view>
     <!--列表结束-->
@@ -36,16 +34,14 @@
     <view class='item'>
       <view class='item_title'>设计理念</view>
       <view wx:for="{{ programmeList }}" wx:key="{{ index }}" class='item_box'>
-        <image src='{{ item.coverPic }}'></image>
+        <image mode="aspectFill" src='{{ item.coverPic }}'></image>
         <view class='title' wx:if="{{ item.areaTypeName }}">
           <view class='circle'></view>
           <text>{{ item.areaTypeName }}</text>
           <view class='clear'></view>
         </view>
 
-        <view class='content'>
-          {{ item.details }}
-        </view>
+        <text class='content' space="ensp">{{ item.details }}</text>
       </view>
     </view>
     <!--列表结束-->

@@ -23,13 +23,6 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-   
-  },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
     if (this.data.imgUrls.length == 0) {
       if (wx.getStorageSync('indexData')) {
         this.setData(wx.getStorageSync('indexData'));
@@ -45,7 +38,7 @@ Page({
     var query = wx.createSelectorQuery();
     query.select("#tab").boundingClientRect();
     query.selectViewport().scrollOffset();
-    var that=this;
+    var that = this;
     query.exec(function (res) {
       //console.log(res[0].top)      // #the-id节点的上边界坐标
       that.setData({
@@ -53,7 +46,7 @@ Page({
       })
     })
     //获取banner图列表
-    getApp().ajax("queryBanners",{},'GET',function(res){
+    getApp().ajax("queryBanners", {}, 'GET', function (res) {
       //console.log(res);
       that.setData({
         imgUrls: res.data.banners
@@ -66,37 +59,50 @@ Page({
     }
     getApp().ajax("queryDesignProgram", data, 'POST', function (res) {
       //console.log(res)
+      var list = res.data.designInfos;
+      var idArr = [];
+      for (var i = 0; i < list.length; i++) {
+        idArr.push(parseInt(list[i].styleId));
+      }
+      idArr = idArr.sort(that.sortNumber);
+      var styleArr = [];
+      for (var i = 0; i < idArr.length; i++) {
+        for (var j = 0; j < list.length; j++) {
+          if (parseInt(idArr[i]) == parseInt(list[j].styleId)) {
+            styleArr.push(list[j]);
+            break;
+          }
+        }
+      }
+      //console.log(styleArr)
       that.setData({
-        styleArr: res.data.designInfos
+        styleArr: styleArr
       })
-      
       wx.setStorageSync('indexData', that.data);
-
-      var index = that.data.select;
-      //组件高度
-      var query = wx.createSelectorQuery();
-      query.select("#list_item"+index).boundingClientRect();
-      query.exec(function (res) {
-        //console.log(res)
-        that.setData({
-          "changeHeight": res[0].height
-        })
-      })
     })
+  },
+
+  /**
+   * 生命周期函数--监听页面初次渲染完成
+   */
+  onReady: function () {
+    
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    this.setData({
+      select: 0
+    })
   },
 
   /**
    * 生命周期函数--监听页面隐藏
    */
   onHide: function () {
-  
+
   },
 
   /**
@@ -115,7 +121,7 @@ Page({
     var that=this;
     setTimeout(function () {
       wx.stopPullDownRefresh();
-      that.onReady();
+      that.onLoad();
       that.onShow();
     }, 1000)
   },
@@ -246,12 +252,18 @@ Page({
   },
   //聊天
   goChat:function(e){
-    getApp().checkToken(function(flag){
+    var url = '/pages/chat/chat';
+    getApp().checkToken(url,function(flag){
         if(flag){
           wx.navigateTo({
-            url: '/pages/chat/chat',
+            url: url,
           })
         }
     })
+  },
+  //排序
+  sortNumber:function(a, b){
+    return a - b
   }
+
 })

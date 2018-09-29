@@ -100,7 +100,6 @@ page{
   padding-left: 20rpx;
 }
 .first_floor .spec_now{
-  border-right: 6rpx solid #F7F8FA;
   padding-right:17rpx;
 }
 .spec_home{

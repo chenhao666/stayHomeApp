@@ -16,7 +16,7 @@
 .programmeList image{
   display: block;
   width: 100%;
-  height: 360rpx;
+  height: 355rpx;
 }
 .describe{
   margin-top: 20rpx;
@@ -36,6 +36,6 @@
   margin-top: 16rpx;
   color: #5F5F5F;
   font-size: 24rpx;
-  text-indent: 48rpx;
+  /*text-indent: 48rpx;*/
   line-height: 36rpx;
 }

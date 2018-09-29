@@ -71,7 +71,6 @@ page{
 }
 .first_floor .spec_now{
   height: 22rpx;
-  border-right: 6rpx solid #F7F8FA;
   padding-right:17rpx;
 }
 .spec_home{
@@ -469,4 +468,14 @@ page{
   margin-top: 10rpx;
   height: 30rpx;
   line-height: 30rpx;
+}
+.status text{
+  height: 30rpx;
+  line-height: 30rpx;
+  float: left;
+}
+.status image{
+  width: 30rpx;
+  height: 30rpx;
+  float: right;
 }

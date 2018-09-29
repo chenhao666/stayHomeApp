@@ -175,9 +175,15 @@ Page({
           data:that.data.userInfo
         })
         WebIM.conn.open(options, function () {
-          wx.switchTab({
-            url: '/pages/user/user'
-          })
+          if (wx.getStorageSync('goUrl')) {
+            wx.navigateTo({
+              url: wx.getStorageSync('goUrl')
+            })
+          } else {
+            wx.switchTab({
+              url: '/pages/user/user'
+            })
+          }
         });
      })
   }

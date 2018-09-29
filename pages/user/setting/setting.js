@@ -91,22 +91,41 @@ Page({
     try {
       wx.clearStorageSync();
       wx.hideLoading();
-      WebIM.conn.close();
       wx.showToast({
         title: '清理成功',
         icon: 'success',
-        duration: 2000
+        duration: 2000,
+        success:function(){
+          setTimeout(function(){
+            WebIM.conn.close();
+          },1000)
+        }
       })
     } catch (e) {
       // Do something when catch error
       wx.hideLoading();
       wx.showToast({
-        title: '清理失败成功',
+        title: '清理失败',
         icon: 'none',
         duration: 2000
       })
       console.log(e);
     }
+  },
+  //联系我们
+  phoneCall:function(e){
+    wx.showModal({
+      title:'提示',
+      content:'是否拨打4009667757？',
+      showCancel:true,
+      success: function (confirm){
+        if (confirm){
+          wx.makePhoneCall({
+            phoneNumber: '4009667757'
+          })
+        }     
+      }
+    })
   },
   //退出登录
   loginOut:function(e){
@@ -114,11 +133,15 @@ Page({
       wx.removeStorageSync('loginFlag');
       wx.removeStorageSync('userInfo');
       wx.removeStorageSync('token'); 
-      WebIM.conn.close();
       wx.showToast({
-        title: '退出成功！',
-        icon: 'none',
-        duration: 2000
+        title: '退出成功',
+        icon: 'success',
+        duration: 2000,
+        success: function () {
+          setTimeout(function () {
+            WebIM.conn.close();
+          }, 1000)
+        }
       })
       setTimeout(function () {
         wx.switchTab({

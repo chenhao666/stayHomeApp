@@ -2,10 +2,9 @@
   <scroll-view class='list' scroll-y='true'>
   <!--左侧的导航栏  -->
     <view class='list_left'>
-      <view class='list_text' wx:for='{{ productList }}' wx:key='index' data-id='{{ index }}' bindtap='tabChoose'>
-        <text class="{{isChecked == index?'text_active':'list_text'}}" data-id='{{ index }}'>{{ item.packageName }}
+      <view class="list_text {{isChecked == index?'text_active':''}}" wx:for='{{ productList }}' wx:key='index' data-id='{{ index }}' bindtap='tabChoose'>
+        <text data-id='{{ index }}'>{{ item.packageName }}
         </text>
-        <text class="{{isChecked == index?'icon_active':''}}" data-id='{{ index }}'></text>
       </view>
     </view>
     <!--右侧商品展示  -->
@@ -59,7 +58,7 @@
                 <!--<text class='brandName'>{{ childlListItem[0].brandName }}</text>-->
               </view>
               <view class='discription' bindtap='changeGoods' data-list="{{ childlListItem }}" data-index1="{{ aindex }}"  data-index2="{{ bindex }}" data-index3="{{ childIndex }}">
-                <view class='title' data-list="{{ childlListItem }}" data-index1="{{ aindex }}"  data-index2="{{ bindex }}" data-index3="{{ childIndex }}" style='padding-left:{{ listItem[0].species=="组合" || listItem[0].species=="商品" ? 80 : 0 }}rpx;'>
+                <view class='title' data-list="{{ childlListItem }}" data-index1="{{ aindex }}"  data-index2="{{ bindex }}" data-index3="{{ childIndex }}" style='padding-left:{{ listItem[0].species=="组合" || listItem[0].species=="商品" ? 100 : 0 }}rpx;'>
                   <view class='red_bg' data-list="{{ childlListItem }}" data-index1="{{ aindex }}"  data-index2="{{ bindex }}" data-index3="{{ childIndex }}">商品{{ childIndex+1 }}</view>
                   {{ childlListItem[0].goodsName }}
                 </view>

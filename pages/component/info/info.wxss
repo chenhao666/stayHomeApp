@@ -2,6 +2,7 @@
 .programme_info{
   background: #f7f8fa;
   padding-bottom:100rpx; 
+  margin-top: 20rpx;
 }
 .programme_info .item{
   margin-top: 20rpx;
@@ -13,7 +14,10 @@
   display: block;
   margin: 0 auto;
   width: 100%;
-  height: 400rpx;
+  height: 375rpx;
+}
+.programme_info .item_box image{
+  height: 345rpx;
 }
 .programme_info .item:first-child{
   margin-top: 0rpx;
@@ -33,6 +37,8 @@
   font-size: 30rpx;
 }
 .programme_info .content{
+  display: block;
+  font-family:PingFang-SC-Regular;
   padding: 40rpx 0rpx;
   width: 100%;
   word-break: break-all;
@@ -40,7 +46,6 @@
   font-size: 24rpx;
   line-height: 36rpx;
   color: #606060;
-  text-indent: 48rpx;
 }
 .item_title{
   width: 100%;

@@ -18,6 +18,8 @@
   line-height: 80rpx;
   width: 140rpx;
   overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 /*.header .item:first-child{
   margin-left: 0rpx;
@@ -26,7 +28,6 @@
   padding-bottom: 10rpx;
 }
 .header .item.active text{
-  width: 40rpx;
   border-bottom: 4rpx solid #F2CD0B;
 }
 

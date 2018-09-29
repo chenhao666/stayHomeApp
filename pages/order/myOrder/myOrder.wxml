@@ -20,7 +20,7 @@
        </view> 
       <view class='imgList'>
         <view class='img' wx:for='{{item.imageUrlList}}' wx:for-item="items" wx:for-index="itemsIndex" wx:key='index'>
-          <image  mode="aspectFit"  src='{{item.imageUrlList[itemsIndex]}}'></image>
+          <image  mode="aspectFit"  src='{{item.imageUrlList[itemsIndex]}}-thum'></image>
         </view>
       </view>
       <view class='message'>
